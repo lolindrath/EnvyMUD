@@ -4,7 +4,7 @@
 CC      = gcc
 PROF    = 
 DEBUG   = -g
-NOCRYPT =
+NOCRYPT = -DNOCRYPT
 O_FLAGS = -O
 C_FLAGS = $(O_FLAGS) -Wall $(DEBUG) $(PROF) $(NOCRYPT)
 L_FLAGS = $(O_FLAGS)                $(PROF)

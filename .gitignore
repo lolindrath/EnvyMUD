@@ -1,0 +1,4 @@
+*.o
+src/envy
+src/envy2
+area/BUGS.TXT
