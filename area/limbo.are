@@ -1,0 +1,181 @@
+#AREA	{None } Diku    Limbo~
+
+
+
+#MOBILES
+#1
+Puff~
+Puff~
+Puff the Fractal Dragon is here, contemplating a higher reality.
+~
+~
+1 0 1000 S
+26 1 -1 5d10+550 4d6+3
+10000 155000
+8 dragon~ 2
+#2
+darkside~
+The Mighty Darkside~
+Here floats a god so evil, you cannot bear to look at it.
+~
+It has a large central eye that projects an anti-magic ray and ten
+eyestalks atop the round body which can do anything from charm you
+to disintegrate you.  Beholders are not known for their personality.
+~
+163 8 -870 S
+25 6 0 25d25+250 6d6+5
+22560 94000
+8 god~ 0
+#0
+
+
+
+#OBJECTS
+#2
+coin gold~
+a gold coin~
+One miserable gold coin.~
+~
+20 0 1
+1~ 0~ 0~ 0~
+1 0 0
+#3
+coins gold~
+some gold coins~
+A pile of gold coins.~
+~
+20 0 1
+0~ 0~ 0~ 0~
+1 0 0
+#4
+generic potion~
+a generic potion~
+A bland generic potion is lying here.~
+~
+10 1 1|16384
+12~ heal~ 0~ 0~
+2 0 0
+#10
+corpse~
+corpse of %s~
+The corpse of %s is lying here.~
+~
+23 0 1
+0~ 0~ 0~ 1~
+100 0 0
+#11
+corpse~
+corpse of %s~
+The corpse of %s is lying here.~
+~
+24 0 0
+0~ 0~ 0~ 1~
+100 0 0
+#12
+head food~
+head of %s~
+The severed head of %s is lying here.~
+~
+19 0 1
+10~ 0~ 0~ 0~
+5 0 0
+#13
+heart food~
+heart of %s~
+The torn-out heart of %s is lying here.~
+~
+19 0 1
+16~ 0~ 0~ 0~
+2 0 0
+#14
+arm food~
+arm of %s~
+The sliced-off arm of %s is lying here.~
+~
+19 0 1
+20~ 0~ 0~ 0~
+5 0 0
+#15
+leg food~
+leg of %s~
+The sliced-off leg of %s is lying here.~
+~
+19 0 1
+20~ 0~ 0~ 0~
+5 0 0
+#16
+turd~
+steaming turd~
+The steaming turds of %s assail your nostrils.~
+~
+13 0 0
+5~ 0~ 0~ 1~
+1 0 0
+#20
+mushroom food~
+a Magic Mushroom~
+A delicious magic mushroom is here.~
+~
+19 0 1
+5~ 0~ 0~ 0~
+1 10 10
+#21
+ball light~
+a bright ball of light~
+A bright ball of light shimmers in the air.~
+~
+1 0 1
+0~ 0~ -1~ 0~
+1 0 0
+#22
+spring~
+a magical spring~
+A magical spring flows from the ground here.~
+~
+25 64 0
+100000~ 100000~ 0~0~
+5000 10 100000
+#0
+
+
+
+#ROOMS
+#1
+The Void~
+  You are floating in nothing.
+~
+0 8 1
+S
+#2
+Limbo~
+   You are floating in a formless void, detached from all sensation of physical
+matter, surrounded by swirling glowing light, which fades into the relative
+darkness around you without any trace of edges or shadow.
+   There is a "No Tipping" notice pinned to the darkness.
+~
+0 8 1
+S
+#69
+Frag's Hovel~
+   You are in a small, miserable, dwelling (for those of you nincompoops who
+don't know what a HOVEL is).  It's dark, dank, and cold.  At one end of the
+room, you see a sorry excuse of a rusty, squeaky bunkbed.  Obviously, neither
+of the beds are made.  A dirty, ragtorn teddy bear sleeps heavily on the
+lower bunk.  You see, to your dismay, TWO clock radios, both of which are
+ringing, which shows that this room was made for TWO people to sleep in,
+although it's barely 10 X 12 feet.  Papers, books, and laundry are thrown
+everywhere, with two computers astrally linked to the world of Envy.
+~
+0 8 1
+S
+#0
+
+
+
+#RESETS
+M 0 1 1 2		Puff
+S
+
+
+
+#$
