@@ -21,11 +21,7 @@
  *  around, comes around.                                                  *
  ***************************************************************************/
 
-#if defined( macintosh )
-#include <types.h>
-#else
 #include <sys/types.h>
-#endif
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -33,13 +29,7 @@
 #include <time.h>
 #include "merc.h"
 
-#if !defined( macintosh )
 extern  int     _filbuf	        args( (FILE *) );
-#endif
-
-#if !defined( ultrix ) && !defined( apollo )
-#include <memory.h>
-#endif
 
 /*
  * Globals.
@@ -159,16 +149,6 @@ int			top_shop;
  */
 #define			MAX_STRING      1600000
 
-#if defined( macintosh )
-#define			MAX_PERM_BLOCK  131072
-#define			MAX_MEM_LIST    11
-
-void *			rgFreeList              [ MAX_MEM_LIST       ];
-const int		rgSizeList              [ MAX_MEM_LIST       ]  =
-{
-    16, 32, 64, 128, 256, 1024, 2048, 4096, 8192, 16384, 32768-64
-};
-#else
 #define			MAX_PERM_BLOCK  131072
 #define			MAX_MEM_LIST    12
 
@@ -177,7 +157,6 @@ const int		rgSizeList              [ MAX_MEM_LIST       ]  =
 {
     16, 32, 64, 128, 256, 1024, 2048, 4096, 8192, 16384, 32768, 65536
 };
-#endif
 
 int			nAllocString;
 int			sAllocString;

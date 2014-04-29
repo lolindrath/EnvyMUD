@@ -21,11 +21,7 @@
  *  around, comes around.                                                  *
  ***************************************************************************/
 
-#if defined( macintosh )
-#include <types.h>
-#else
 #include <sys/types.h>
-#endif
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -33,14 +29,7 @@
 #include <time.h>
 #include "merc.h"
 
-#if !defined( macintosh )
 extern	int	_filbuf		args( (FILE *) );
-#endif
-
-#if defined( sun )
-int     system          args( ( const char *string ) );
-#endif
-
 
 /*
  * Array of containers read for proper re-nesting of objects.
@@ -91,12 +80,7 @@ void save_char_obj( CHAR_DATA *ch )
     fclose( fpReserve );
 
     /* player files parsed directories by Yaz 4th Realm */
-#if !defined( macintosh ) && !defined( MSDOS )
-    sprintf( strsave, "%s%s%s%s", PLAYER_DIR, initial( ch->name ),
-	    "/", capitalize( ch->name ) );
-#else
     sprintf( strsave, "%s%s", PLAYER_DIR, capitalize( ch->name ) );
-#endif
     if ( !( fp = fopen( strsave, "w" ) ) )
     {
         sprintf( buf, "Save_char_obj: fopen %s: ", ch->name );
@@ -339,9 +323,7 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
            FILE      *fp;
     static PC_DATA    pcdata_zero;
 	   CHAR_DATA *ch;
-#if !defined( MSDOS )
 	   char       buf     [ MAX_STRING_LENGTH ];
-#endif
 	   char       strsave [ MAX_INPUT_LENGTH ];
 	   bool       found;
 
@@ -396,7 +378,6 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
 
     /* parsed player file directories by Yaz of 4th Realm */
     /* decompress if .gz file exists - Thx Alander */
-#if !defined( macintosh ) && !defined( MSDOS )
     sprintf( strsave, "%s%s%s%s%s", PLAYER_DIR, initial( ch->name ),
 	    "/", capitalize( name ), ".gz" );
     if ( ( fp = fopen( strsave, "r" ) ) )
@@ -405,14 +386,9 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
 	sprintf( buf, "gzip -dfq %s", strsave );
 	system( buf );
     }
-#endif
 
-#if !defined( macintosh ) && !defined( MSDOS )
     sprintf( strsave, "%s%s%s%s", PLAYER_DIR, initial( ch->name ),
 	    "/", capitalize( name ) );
-#else
-    sprintf( strsave, "%s%s", PLAYER_DIR, capitalize( name ) );
-#endif
     if ( ( fp = fopen( strsave, "r" ) ) )
     {
 	int iNest;

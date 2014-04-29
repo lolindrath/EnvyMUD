@@ -24,23 +24,11 @@
 #include <stdbool.h>
 
 
-/*
- * Accommodate old non-Ansi compilers.
- */
-#if defined( TRADITIONAL )
-#define const
-#define args( list )			( )
-#define DECLARE_DO_FUN( fun )		void fun( )
-#define DECLARE_SPEC_FUN( fun )		bool fun( )
-#define DECLARE_SPELL_FUN( fun )	void fun( )
-#define DECLARE_GAME_FUN( fun ) 	void fun( )
-#else
 #define args( list )			list
 #define DECLARE_DO_FUN( fun )		DO_FUN    fun
 #define DECLARE_SPEC_FUN( fun )		SPEC_FUN  fun
 #define DECLARE_SPELL_FUN( fun )	SPELL_FUN fun
 #define DECLARE_GAME_FUN( fun )		GAME_FUN  fun
-#endif
 
 
 #if	!defined( FALSE )
@@ -1673,10 +1661,8 @@ DECLARE_SPELL_FUN(      spell_ultrablast        );
  *   so players can go ahead and telnet to all the other descriptors.
  * Then we close it whenever we need to open a file (e.g. a save file).
  */
-#if defined( unix )
 #define PLAYER_DIR	"../player/"	/* Player files			*/
 #define NULL_FILE	"/dev/null"	/* To reserve one stream	*/
-#endif
 
 #define AREA_LIST	"AREA.LST"	/* List of areas		*/
 
