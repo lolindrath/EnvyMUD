@@ -2939,7 +2939,7 @@ const	struct	social_type	social_table [ ] =
  * The main entry point for executing commands.
  * Can be recursively called from 'at', 'order', 'force'.
  */
-void interpret( CHAR_DATA *ch, char *argument )
+void interpret( CHAR_DATA *ch, const char *argument )
 {
     char command [ MAX_INPUT_LENGTH ];
     char logline [ MAX_INPUT_LENGTH ];

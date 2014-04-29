@@ -72,7 +72,7 @@ typedef void SPELL_FUN                  args( ( int sn, int level,
 					       CHAR_DATA *ch, void *vo ) );
 typedef void GAME_FUN                   args( ( CHAR_DATA *ch,
 					       CHAR_DATA *croupier,
-					       char *argument ) );
+					       const char *argument ) );
 
 /*
  * String and memory management parameters.
@@ -1712,7 +1712,7 @@ void	write_to_buffer	 args( ( DESCRIPTOR_DATA *d, const char *txt,
 void    send_to_room     args( ( const char *txt, ROOM_INDEX_DATA *room ) );
 void    send_to_all_char args( ( const char *text ) );
 void	send_to_char	 args( ( const char *txt, CHAR_DATA *ch ) );
-void    show_string      args( ( DESCRIPTOR_DATA *d, char *input ) );
+void    show_string      args( ( DESCRIPTOR_DATA *d, const char *input ) );
 void	act	         args( ( const char *format, CHAR_DATA *ch,
 				const void *arg1, const void *arg2,
 				int type ) );
@@ -1811,7 +1811,7 @@ OD *	get_obj_list	args( ( CHAR_DATA *ch, char *argument,
 OD *	get_obj_carry	args( ( CHAR_DATA *ch, char *argument ) );
 OD *	get_obj_wear	args( ( CHAR_DATA *ch, char *argument ) );
 OD *	get_obj_here	args( ( CHAR_DATA *ch, char *argument ) );
-OD *	get_obj_world	args( ( CHAR_DATA *ch, char *argument ) );
+OD *	get_obj_world	args( ( CHAR_DATA *ch, const char *argument ) );
 OD *	create_money	args( ( int amount ) );
 int	get_obj_number	args( ( OBJ_DATA *obj ) );
 int	get_obj_weight	args( ( OBJ_DATA *obj ) );
@@ -1825,14 +1825,14 @@ const char *	affect_loc_name	args( ( int location ) );
 char *	affect_bit_name	args( ( int vector ) );
 char *	extra_bit_name	args( ( int extra_flags ) );
 CD   *  get_char        args( ( CHAR_DATA *ch ) );
-bool    longstring      args( ( CHAR_DATA *ch, char *argument ) );
+bool    longstring      args( ( CHAR_DATA *ch, const char *argument ) );
 bool    authorized      args( ( CHAR_DATA *ch, const char *skllnm ) );
 void    end_of_game     args( ( void ) );
 int     race_lookup     args( ( const char *race ) );
 int     affect_lookup   args( ( const char *race ) );
 
 /* interp.c */
-void	interpret	args( ( CHAR_DATA *ch, char *argument ) );
+void	interpret	args( ( CHAR_DATA *ch, const char *argument ) );
 bool	is_number	args( ( const char *arg ) );
 int	number_argument	args( ( char *argument, char *arg ) );
 char *	one_argument	args( ( const char *argument, char *arg_first ) );

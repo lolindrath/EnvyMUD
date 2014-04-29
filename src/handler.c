@@ -1337,7 +1337,7 @@ OBJ_DATA *get_obj_here( CHAR_DATA *ch, char *argument )
 /*
  * Find an obj in the world.
  */
-OBJ_DATA *get_obj_world( CHAR_DATA *ch, char *argument )
+OBJ_DATA *get_obj_world( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *obj;
     char      arg [ MAX_INPUT_LENGTH ];
@@ -1762,7 +1762,7 @@ CHAR_DATA *get_char( CHAR_DATA *ch )
         return ch;
 }
 
-bool longstring( CHAR_DATA *ch, char *argument )
+bool longstring( CHAR_DATA *ch, const char *argument )
 {
     if ( strlen( argument) > 60 )
     {

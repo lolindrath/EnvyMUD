@@ -1985,8 +1985,9 @@ void do_password( CHAR_DATA *ch, const char *argument )
 	*pArg++ = *argument++;
     }
     *pArg = '\0';
-    // TODO: I don't think this line is needed
-	// *argument = '\0';
+    /* TODO: I don't think this line is needed
+	*argument = '\0';
+	*/
 
     if ( arg1[0] == '\0' || arg2[0] == '\0' )
     {

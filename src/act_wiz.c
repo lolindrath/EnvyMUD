@@ -31,7 +31,7 @@
 
 /* Conversion of Immortal powers to Immortal skills done by Thelonius */
 
-void do_wizhelp( CHAR_DATA *ch, const const char *argument )
+void do_wizhelp( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
     char       buf  [ MAX_STRING_LENGTH ];
@@ -274,6 +274,7 @@ void do_pardon( CHAR_DATA *ch, const char *argument )
 
 void do_echo( CHAR_DATA *ch, const char *argument )
 {
+	char buf[MAX_STRING_LENGTH];
     CHAR_DATA *rch;
 
     rch = get_char( ch );
@@ -287,8 +288,9 @@ void do_echo( CHAR_DATA *ch, const char *argument )
 	return;
     }
 
-    strcat( argument, "\n\r" );
-    send_to_all_char( argument );
+	strcpy(buf, argument);
+    strcat( buf, "\n\r" );
+    send_to_all_char( buf );
 
     return;
 }

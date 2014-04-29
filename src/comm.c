@@ -69,13 +69,14 @@ extern	int	malloc_verify	args( ( void ) );
  * Socket and TCP/IP stuff.
  */
 #include <fcntl.h>
+#include <unistd.h>
 #include <netdb.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include <arpa/telnet.h>
-const	char	echo_off_str	[] = { IAC, WILL, TELOPT_ECHO, '\0' };
-const	char	echo_on_str	[] = { IAC, WONT, TELOPT_ECHO, '\0' };
-const	char 	go_ahead_str	[] = { IAC, GA, '\0' };
+const	unsigned char	echo_off_str	[] = { IAC, WILL, TELOPT_ECHO, '\0' };
+const	unsigned char	echo_on_str	[] = { IAC, WONT, TELOPT_ECHO, '\0' };
+const	unsigned char 	go_ahead_str	[] = { IAC, GA, '\0' };
 
 #if     defined( interactive )
 #include <net/errno.h>
@@ -104,7 +105,7 @@ void	game_loop_unix		args( ( int control ) );
 int	init_socket		args( ( int port ) );
 void	new_descriptor		args( ( int control ) );
 bool	read_from_descriptor	args( ( DESCRIPTOR_DATA *d ) );
-bool	write_to_descriptor	args( ( int desc, char *txt, int length ) );
+bool	write_to_descriptor	args( ( int desc, const char *txt, int length ) );
 
 
 
@@ -645,7 +646,7 @@ void close_socket( DESCRIPTOR_DATA *dclose )
 
 bool read_from_descriptor( DESCRIPTOR_DATA *d )
 {
-    int iStart;
+    unsigned int iStart;
 
     /* Hold horses if pending command already. */
     if ( d->incomm[0] != '\0' )
@@ -1018,7 +1019,7 @@ void write_to_buffer( DESCRIPTOR_DATA *d, const char *txt, int length )
  * If this gives errors on very long blocks (like 'ofind all'),
  *   try lowering the max block size.
  */
-bool write_to_descriptor( int desc, char *txt, int length )
+bool write_to_descriptor( int desc, const char *txt, int length )
 {
     int iStart;
     int nWrite;
@@ -1746,7 +1747,7 @@ void send_to_char( const char *txt, CHAR_DATA *ch )
  /* 12/1/94 Fixed bounds and overflow bugs in pager thanks to BoneCrusher
     of EnvyMud Staff - Kahn */
 
-void show_string( struct descriptor_data *d, char *input )
+void show_string( struct descriptor_data *d, const char *input )
 {
     register char *scan;
              char  buffer[ MAX_STRING_LENGTH*6 ];

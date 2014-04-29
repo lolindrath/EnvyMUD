@@ -1718,7 +1718,7 @@ void do_bet( CHAR_DATA *ch, const char *argument )
  * Game idea by Partan
  * Coded by Thelonius
  */
-void game_u_l_t( CHAR_DATA *ch, CHAR_DATA *croupier, char *argument )
+void game_u_l_t( CHAR_DATA *ch, CHAR_DATA *croupier, const char *argument )
 {
     char msg    [ MAX_STRING_LENGTH ];
     char buf    [ MAX_STRING_LENGTH ];
