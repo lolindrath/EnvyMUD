@@ -2,4 +2,4 @@ language: c
 compiler:
   - clang
   - gcc
-script: make
+script: pushd src && make ; popd
