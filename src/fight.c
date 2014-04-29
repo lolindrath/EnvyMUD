@@ -1125,7 +1125,7 @@ void make_corpse( CHAR_DATA *ch )
 void death_cry( CHAR_DATA *ch )
 {
     ROOM_INDEX_DATA *was_in_room;
-    char            *msg;
+    const char       *msg;
     int              vnum;
     int              door;
 
@@ -1486,7 +1486,7 @@ int xp_compute( CHAR_DATA *gch, CHAR_DATA *victim )
 void dam_message( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt,
 		 int wpn )
 {
-    static char * const  attack_table   [ ] =
+    static const char *attack_table   [ ] =
     {
 	"hit",
 	"slice",  "stab",    "slash", "whip", "claw",
@@ -1664,7 +1664,7 @@ void trip( CHAR_DATA *ch, CHAR_DATA *victim )
 
 
 
-void do_kill( CHAR_DATA *ch, char *argument )
+void do_kill( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *victim;
     char       arg [ MAX_INPUT_LENGTH ];
@@ -1729,7 +1729,7 @@ void do_kill( CHAR_DATA *ch, char *argument )
 }
 
 
-void do_murder( CHAR_DATA *ch, char *argument )
+void do_murder( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *victim;
     char       arg [ MAX_INPUT_LENGTH ];
@@ -1783,7 +1783,7 @@ void do_murder( CHAR_DATA *ch, char *argument )
  * who wield two weapons, with the first not being a dagger, will be
  * unable to backstab or circle.  Tough cookie.  --- Thelonius
  */
-void do_backstab( CHAR_DATA *ch, char *argument )
+void do_backstab( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA  *obj;
     CHAR_DATA *victim;
@@ -1854,7 +1854,7 @@ void do_backstab( CHAR_DATA *ch, char *argument )
 
 
 
-void do_circle( CHAR_DATA *ch, char *argument )
+void do_circle( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA  *obj;
     CHAR_DATA *rch;
@@ -1950,7 +1950,7 @@ void do_circle( CHAR_DATA *ch, char *argument )
 
 
 
-void do_flee( CHAR_DATA *ch, char *argument )
+void do_flee( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA       *victim;
     ROOM_INDEX_DATA *was_in;
@@ -2020,7 +2020,7 @@ void do_flee( CHAR_DATA *ch, char *argument )
 
 
 
-void do_berserk( CHAR_DATA *ch, char *argument )
+void do_berserk( CHAR_DATA *ch, const char *argument )
 {
     AFFECT_DATA af;
 
@@ -2076,7 +2076,7 @@ void do_berserk( CHAR_DATA *ch, char *argument )
 
 
 
-void do_rescue( CHAR_DATA *ch, char *argument )
+void do_rescue( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *victim;
     CHAR_DATA *fch;
@@ -2183,7 +2183,7 @@ void do_rescue( CHAR_DATA *ch, char *argument )
 
 
 
-void do_kick( CHAR_DATA *ch, char *argument )
+void do_kick( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *victim;
     char       arg [ MAX_INPUT_LENGTH ];
@@ -2243,7 +2243,7 @@ void do_kick( CHAR_DATA *ch, char *argument )
 
 
 
-void do_disarm( CHAR_DATA *ch, char *argument )
+void do_disarm( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *victim;
     char       arg [ MAX_INPUT_LENGTH ];
@@ -2306,7 +2306,7 @@ void do_disarm( CHAR_DATA *ch, char *argument )
 
 
 
-void do_sla( CHAR_DATA *ch, char *argument )
+void do_sla( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
 
@@ -2321,7 +2321,7 @@ void do_sla( CHAR_DATA *ch, char *argument )
 
 
 
-void do_slay( CHAR_DATA *ch, char *argument )
+void do_slay( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *victim;
     CHAR_DATA *rch;
@@ -2510,7 +2510,7 @@ bool check_race_special( CHAR_DATA *ch )
 }
 
 
-void do_fee( CHAR_DATA *ch, char *argument )
+void do_fee( CHAR_DATA *ch, const char *argument )
 {
     send_to_char(
 		 "IF you wish to feed on someone or something, type FEED!\n\r",
@@ -2519,7 +2519,7 @@ void do_fee( CHAR_DATA *ch, char *argument )
 }
 
 /* Vampiric bite.  Feeding */
-void do_feed( CHAR_DATA *ch, char *argument )
+void do_feed( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA   *victim;
     OBJ_DATA    *obj;
@@ -2658,7 +2658,7 @@ void do_feed( CHAR_DATA *ch, char *argument )
 
 }
 
-void do_stake( CHAR_DATA *ch, char *argument )
+void do_stake( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA   *victim;
     OBJ_DATA    *obj;

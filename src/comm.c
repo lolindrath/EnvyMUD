@@ -1047,7 +1047,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
     CHAR_DATA *ch;
     NOTE_DATA *pnote;
     char      *pwdnew;
-    char      *classname;
+    const char      *classname;
     char      *p;
     char       buf [ MAX_STRING_LENGTH ];
     int        iClass;
@@ -1850,9 +1850,9 @@ void act( const char *format, CHAR_DATA *ch, const void *arg1,
 	   OBJ_DATA        *obj2        = (OBJ_DATA  *) arg2;
 	   CHAR_DATA       *to;
 	   CHAR_DATA       *vch         = (CHAR_DATA *) arg2;
-    static char *    const  he_she  [ ] = { "it",  "he",  "she" };
-    static char *    const  him_her [ ] = { "it",  "him", "her" };
-    static char *    const  his_her [ ] = { "its", "his", "her" };
+    const static char *    he_she  [ ] = { "it",  "he",  "she" };
+    const static char *    him_her [ ] = { "it",  "him", "her" };
+    const static char *    his_her [ ] = { "its", "his", "her" };
     const  char            *str;
     const  char            *i;
            char            *point;

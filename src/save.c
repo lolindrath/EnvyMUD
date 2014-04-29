@@ -452,7 +452,7 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
 
 void fread_char( CHAR_DATA *ch, FILE *fp )
 {
-    char *word;
+    const char *word;
     char *race;
     char  buf [ MAX_STRING_LENGTH ];
     bool  fMatch;
@@ -720,7 +720,7 @@ void fread_obj( CHAR_DATA *ch, FILE *fp )
 {
     static OBJ_DATA  obj_zero;
            OBJ_DATA *obj;
-           char     *word;
+           const char     *word;
            int       iNest;
            bool      fMatch;
            bool      fNest;

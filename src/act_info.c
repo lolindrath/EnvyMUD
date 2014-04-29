@@ -31,7 +31,7 @@
 
 
 
-char *	const	where_name	[] =
+const char *	where_name	[] =
 {
     "<used as light>     ",
     "<worn on finger>    ",
@@ -432,7 +432,7 @@ bool check_blind( CHAR_DATA *ch )
 
 
 
-void do_look( CHAR_DATA *ch, char *argument )
+void do_look( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA  *obj;
     CHAR_DATA *victim;
@@ -658,7 +658,7 @@ void do_look( CHAR_DATA *ch, char *argument )
 
 
 
-void do_examine( CHAR_DATA *ch, char *argument )
+void do_examine( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *obj;
     char      buf [ MAX_STRING_LENGTH ];
@@ -699,7 +699,7 @@ void do_examine( CHAR_DATA *ch, char *argument )
 /*
  * Thanks to Zrin for auto-exit part.
  */
-void do_exits( CHAR_DATA *ch, char *argument )
+void do_exits( CHAR_DATA *ch, const char *argument )
 {
            EXIT_DATA       *pexit;
     extern char *    const  dir_name [ ];
@@ -753,7 +753,7 @@ void do_exits( CHAR_DATA *ch, char *argument )
 
 
 
-void do_score( CHAR_DATA *ch, char *argument )
+void do_score( CHAR_DATA *ch, const char *argument )
 {
     AFFECT_DATA *paf;
     char         buf  [ MAX_STRING_LENGTH ];
@@ -951,13 +951,13 @@ void do_score( CHAR_DATA *ch, char *argument )
 
 
 
-char *	const	day_name	[] =
+const char *	day_name	[] =
 {
     "the Moon", "the Bull", "Deception", "Thunder", "Freedom",
     "the Great Gods", "the Sun"
 };
 
-char *	const	month_name	[] =
+const char *	month_name	[] =
 {
     "Winter", "the Winter Wolf", "the Frost Giant", "the Old Forces",
     "the Grand Struggle", "the Spring", "Nature", "Futility", "the Dragon",
@@ -965,11 +965,11 @@ char *	const	month_name	[] =
     "the Long Shadows", "the Ancient Darkness", "the Great Evil"
 };
 
-void do_time( CHAR_DATA *ch, char *argument )
+void do_time( CHAR_DATA *ch, const char *argument )
 {
            char  buf           [ MAX_STRING_LENGTH ];
     extern char  str_boot_time[];
-           char *suf;
+           const char *suf;
            int   day;
 
     day     = time_info.day + 1;
@@ -1004,10 +1004,10 @@ void do_time( CHAR_DATA *ch, char *argument )
 
 
 
-void do_weather( CHAR_DATA *ch, char *argument )
+void do_weather( CHAR_DATA *ch, const char *argument )
 {
            char         buf     [ MAX_STRING_LENGTH ];
-    static char * const sky_look[ 4 ] =
+    const static char * sky_look[ 4 ] =
     {
 	"cloudless",
 	"cloudy",
@@ -1032,7 +1032,7 @@ void do_weather( CHAR_DATA *ch, char *argument )
 
 
 
-void do_help( CHAR_DATA *ch, char *argument )
+void do_help( CHAR_DATA *ch, const char *argument )
 {
     HELP_DATA *pHelp;
     bool       hfound = FALSE; /* modification to show multiple helps
@@ -1078,7 +1078,7 @@ void do_help( CHAR_DATA *ch, char *argument )
 /*
  * New 'who' command originally by Alander of Rivers of Mud.
  */
-void do_who( CHAR_DATA *ch, char *argument )
+void do_who( CHAR_DATA *ch, const char *argument )
 {
     DESCRIPTOR_DATA *d;
     char             buf      [ MAX_STRING_LENGTH*3 ];
@@ -1239,7 +1239,7 @@ void do_who( CHAR_DATA *ch, char *argument )
 }
 
 /* Contributed by Kaneda */
-void do_whois( CHAR_DATA *ch, char *argument )
+void do_whois( CHAR_DATA *ch, const char *argument )
 {
     DESCRIPTOR_DATA *d;
     char             buf  [ MAX_STRING_LENGTH  ];
@@ -1313,7 +1313,7 @@ void do_whois( CHAR_DATA *ch, char *argument )
 }
 
 
-void do_inventory( CHAR_DATA *ch, char *argument )
+void do_inventory( CHAR_DATA *ch, const char *argument )
 {
     send_to_char( "You are carrying:\n\r", ch );
     show_list_to_char( ch->carrying, ch, TRUE, TRUE );
@@ -1322,7 +1322,7 @@ void do_inventory( CHAR_DATA *ch, char *argument )
 
 
 
-void do_equipment( CHAR_DATA *ch, char *argument )
+void do_equipment( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *obj;
     int       iWear;
@@ -1356,11 +1356,11 @@ void do_equipment( CHAR_DATA *ch, char *argument )
 
 
 
-void do_compare( CHAR_DATA *ch, char *argument )
+void do_compare( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *obj1;
     OBJ_DATA *obj2;
-    char     *msg;
+    const char     *msg;
     char      arg1 [ MAX_INPUT_LENGTH ];
     char      arg2 [ MAX_INPUT_LENGTH ];
     int       value1;
@@ -1483,7 +1483,7 @@ void do_compare( CHAR_DATA *ch, char *argument )
 
 
 
-void do_credits( CHAR_DATA *ch, char *argument )
+void do_credits( CHAR_DATA *ch, const char *argument )
 {
     do_help( ch, "diku" );
     return;
@@ -1491,7 +1491,7 @@ void do_credits( CHAR_DATA *ch, char *argument )
 
 
 
-void do_where( CHAR_DATA *ch, char *argument )
+void do_where( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA       *victim;
     DESCRIPTOR_DATA *d;
@@ -1557,11 +1557,11 @@ void do_where( CHAR_DATA *ch, char *argument )
 
 
 
-void do_consider( CHAR_DATA *ch, char *argument )
+void do_consider( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *victim;
-    char      *buf                      = '\0';
-    char      *msg;
+    const char      *buf                      = '\0';
+    const char      *msg;
     char       arg [ MAX_INPUT_LENGTH ];
     int        diff;
     int        hpdiff;
@@ -1664,8 +1664,9 @@ void set_title( CHAR_DATA *ch, char *title )
 
 
 
-void do_title( CHAR_DATA *ch, char *argument )
+void do_title( CHAR_DATA *ch, const char *argument )
 {
+	char buf[MAX_STRING_LENGTH];
     if ( IS_NPC( ch ) )
 	return;
 
@@ -1676,16 +1677,19 @@ void do_title( CHAR_DATA *ch, char *argument )
     }
 
     if ( strlen( argument ) > 50 )
-	argument[50] = '\0';
+	{
+		strcpy(buf, argument);
+		buf[50] = '\0';
+	}
 
-    smash_tilde( argument );
-    set_title( ch, argument );
+    smash_tilde( buf );
+    set_title( ch, buf );
     send_to_char( "Ok.\n\r", ch );
 }
 
 
 
-void do_description( CHAR_DATA *ch, char *argument )
+void do_description( CHAR_DATA *ch, const char *argument )
 {
     char buf [ MAX_STRING_LENGTH ];
 
@@ -1724,7 +1728,7 @@ void do_description( CHAR_DATA *ch, char *argument )
 
 
 
-void do_report( CHAR_DATA *ch, char *argument )
+void do_report( CHAR_DATA *ch, const char *argument )
 {
     char buf [ MAX_INPUT_LENGTH ];
 
@@ -1751,7 +1755,7 @@ void do_report( CHAR_DATA *ch, char *argument )
 
 
 
-void do_practice( CHAR_DATA *ch, char *argument )
+void do_practice( CHAR_DATA *ch, const char *argument )
 {
     char buf  [ MAX_STRING_LENGTH   ];
     char buf1 [ MAX_STRING_LENGTH*2 ];
@@ -1895,7 +1899,7 @@ void do_practice( CHAR_DATA *ch, char *argument )
 /*
  * 'Wimpy' originally by Dionysos.
  */
-void do_wimpy( CHAR_DATA *ch, char *argument )
+void do_wimpy( CHAR_DATA *ch, const char *argument )
 {
     char buf [ MAX_STRING_LENGTH ];
     char arg [ MAX_INPUT_LENGTH  ];
@@ -1928,7 +1932,7 @@ void do_wimpy( CHAR_DATA *ch, char *argument )
 
 
 
-void do_password( CHAR_DATA *ch, char *argument )
+void do_password( CHAR_DATA *ch, const char *argument )
 {
     char *pArg;
     char *pwdnew;
@@ -1981,7 +1985,8 @@ void do_password( CHAR_DATA *ch, char *argument )
 	*pArg++ = *argument++;
     }
     *pArg = '\0';
-    *argument = '\0';
+    // TODO: I don't think this line is needed
+	// *argument = '\0';
 
     if ( arg1[0] == '\0' || arg2[0] == '\0' )
     {
@@ -2026,7 +2031,7 @@ void do_password( CHAR_DATA *ch, char *argument )
 
 
 
-void do_socials( CHAR_DATA *ch, char *argument )
+void do_socials( CHAR_DATA *ch, const char *argument )
 {
     char buf  [ MAX_STRING_LENGTH ];
     char buf1 [ MAX_STRING_LENGTH ];
@@ -2055,7 +2060,7 @@ void do_socials( CHAR_DATA *ch, char *argument )
 /*
  * Contributed by Alander.
  */
-void do_commands( CHAR_DATA *ch, char *argument )
+void do_commands( CHAR_DATA *ch, const char *argument )
 {
     char buf  [ MAX_STRING_LENGTH ];
     char buf1 [ MAX_STRING_LENGTH ];
@@ -2085,7 +2090,7 @@ void do_commands( CHAR_DATA *ch, char *argument )
 
 
 
-void do_channels( CHAR_DATA *ch, char *argument )
+void do_channels( CHAR_DATA *ch, const char *argument )
 {
     char arg [ MAX_INPUT_LENGTH  ];
 
@@ -2183,7 +2188,7 @@ void do_channels( CHAR_DATA *ch, char *argument )
 /*
  * Contributed by Grodyn.
  */
-void do_config( CHAR_DATA *ch, char *argument )
+void do_config( CHAR_DATA *ch, const char *argument )
 {
     char arg [ MAX_INPUT_LENGTH ];
 
@@ -2305,7 +2310,7 @@ void do_config( CHAR_DATA *ch, char *argument )
     return;
 }
 
-void do_wizlist ( CHAR_DATA *ch, char *argument )
+void do_wizlist ( CHAR_DATA *ch, const char *argument )
 {
 
     do_help ( ch, "wizlist" );
@@ -2313,7 +2318,7 @@ void do_wizlist ( CHAR_DATA *ch, char *argument )
 
 }
 
-void do_spells ( CHAR_DATA *ch, char *argument )
+void do_spells ( CHAR_DATA *ch, const char *argument )
 {
     char buf  [ MAX_STRING_LENGTH ];
     char buf1 [ MAX_STRING_LENGTH ];
@@ -2353,7 +2358,7 @@ void do_spells ( CHAR_DATA *ch, char *argument )
 
 }
 
-void do_slist ( CHAR_DATA *ch, char *argument )
+void do_slist ( CHAR_DATA *ch, const char *argument )
 {
     char buf  [ MAX_STRING_LENGTH ];
     char buf1 [ MAX_STRING_LENGTH ];
@@ -2417,7 +2422,7 @@ void do_slist ( CHAR_DATA *ch, char *argument )
 
 /* bypassing the config command - Kahn */
 
-void do_autoexit ( CHAR_DATA *ch, char *argument )
+void do_autoexit ( CHAR_DATA *ch, const char *argument )
 {
     char buf[ MAX_STRING_LENGTH ];
 
@@ -2431,7 +2436,7 @@ void do_autoexit ( CHAR_DATA *ch, char *argument )
 
 }
 
-void do_autoloot ( CHAR_DATA *ch, char *argument )
+void do_autoloot ( CHAR_DATA *ch, const char *argument )
 {
     char buf[ MAX_STRING_LENGTH ];
 
@@ -2444,7 +2449,7 @@ void do_autoloot ( CHAR_DATA *ch, char *argument )
     return;
 }
 
-void do_autogold ( CHAR_DATA *ch, char *argument )
+void do_autogold ( CHAR_DATA *ch, const char *argument )
 {
     char buf[ MAX_STRING_LENGTH ];
 
@@ -2458,7 +2463,7 @@ void do_autogold ( CHAR_DATA *ch, char *argument )
 
 }
 
-void do_autosac ( CHAR_DATA *ch, char *argument )
+void do_autosac ( CHAR_DATA *ch, const char *argument )
 {
     char buf[ MAX_STRING_LENGTH ];
 
@@ -2472,7 +2477,7 @@ void do_autosac ( CHAR_DATA *ch, char *argument )
 
 }
 
-void do_blank ( CHAR_DATA *ch, char *argument )
+void do_blank ( CHAR_DATA *ch, const char *argument )
 {
     char buf[ MAX_STRING_LENGTH ];
 
@@ -2486,7 +2491,7 @@ void do_blank ( CHAR_DATA *ch, char *argument )
 
 }
 
-void do_brief ( CHAR_DATA *ch, char *argument )
+void do_brief ( CHAR_DATA *ch, const char *argument )
 {
     char buf[ MAX_STRING_LENGTH ];
 
@@ -2500,7 +2505,7 @@ void do_brief ( CHAR_DATA *ch, char *argument )
 
 }
 
-void do_combine ( CHAR_DATA *ch, char *argument )
+void do_combine ( CHAR_DATA *ch, const char *argument )
 {
     char buf[ MAX_STRING_LENGTH ];
 
@@ -2514,7 +2519,7 @@ void do_combine ( CHAR_DATA *ch, char *argument )
 
 }
  
-void do_pagelen ( CHAR_DATA *ch, char *argument )
+void do_pagelen ( CHAR_DATA *ch, const char *argument )
 {
     char buf [ MAX_STRING_LENGTH ];
     char arg [ MAX_INPUT_LENGTH  ];
@@ -2551,9 +2556,10 @@ void do_pagelen ( CHAR_DATA *ch, char *argument )
 }
 
 /* Do_prompt from Morgenes from Aldara Mud */
-void do_prompt( CHAR_DATA *ch, char *argument )
+void do_prompt( CHAR_DATA *ch, const char *argument )
 {
    char buf [ MAX_STRING_LENGTH ];
+   char buf2[MAX_STRING_LENGTH];
 
    buf[0] = '\0';
 
@@ -2580,9 +2586,12 @@ void do_prompt( CHAR_DATA *ch, char *argument )
    else
    {
       if ( strlen( argument ) > 50 )
-	  argument[50] = '\0';
-      smash_tilde( argument );
-      strcat( buf, argument );
+	  {
+		  strcpy(buf2, argument);
+		buf2[50] = '\0';
+	  }
+      smash_tilde( buf2 );
+      strcat( buf, buf2 );
    }
 
    free_string( ch->pcdata->prompt );
@@ -2591,7 +2600,7 @@ void do_prompt( CHAR_DATA *ch, char *argument )
    return;
 } 
 
-void do_auto( CHAR_DATA *ch, char *argument )
+void do_auto( CHAR_DATA *ch, const char *argument )
 {
 
     do_config( ch, "" );
@@ -2599,7 +2608,7 @@ void do_auto( CHAR_DATA *ch, char *argument )
 
 }
 
-void do_afk( CHAR_DATA *ch, char *argument )
+void do_afk( CHAR_DATA *ch, const char *argument )
 {
     if ( IS_NPC( ch ) )
         return;

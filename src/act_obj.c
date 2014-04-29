@@ -118,7 +118,7 @@ void get_obj( CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container )
 
 
 
-void do_get( CHAR_DATA *ch, char *argument )
+void do_get( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *obj;
     OBJ_DATA *container;
@@ -296,7 +296,7 @@ void do_get( CHAR_DATA *ch, char *argument )
 
 
 
-void do_put( CHAR_DATA *ch, char *argument )
+void do_put( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *container;
     OBJ_DATA *obj;
@@ -399,7 +399,7 @@ void do_put( CHAR_DATA *ch, char *argument )
 
 
 
-void do_drop( CHAR_DATA *ch, char *argument )
+void do_drop( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *obj;
     char      arg [ MAX_INPUT_LENGTH ];
@@ -521,7 +521,7 @@ void do_drop( CHAR_DATA *ch, char *argument )
 
 
 
-void do_give( CHAR_DATA *ch, char *argument )
+void do_give( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *victim;
     OBJ_DATA  *obj;
@@ -645,7 +645,7 @@ void do_give( CHAR_DATA *ch, char *argument )
 
 
 
-void do_fill( CHAR_DATA *ch, char *argument )
+void do_fill( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *obj;
     OBJ_DATA *fountain;
@@ -712,7 +712,7 @@ void do_fill( CHAR_DATA *ch, char *argument )
 
 
 
-void do_drink( CHAR_DATA *ch, char *argument )
+void do_drink( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *obj;
     char      arg [ MAX_INPUT_LENGTH ];
@@ -849,7 +849,7 @@ void do_drink( CHAR_DATA *ch, char *argument )
 
 
 
-void do_eat( CHAR_DATA *ch, char *argument )
+void do_eat( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *obj;
     char      arg [ MAX_INPUT_LENGTH ];
@@ -1287,7 +1287,7 @@ void wear_obj( CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace )
 
 
 
-void do_wear( CHAR_DATA *ch, char *argument )
+void do_wear( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *obj;
     char      arg [ MAX_INPUT_LENGTH ];
@@ -1352,7 +1352,7 @@ void do_wear( CHAR_DATA *ch, char *argument )
 
 
 
-void do_remove( CHAR_DATA *ch, char *argument )
+void do_remove( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *obj;
     char      arg [ MAX_INPUT_LENGTH ];
@@ -1377,7 +1377,7 @@ void do_remove( CHAR_DATA *ch, char *argument )
 
 
 
-void do_sacrifice( CHAR_DATA *ch, char *argument )
+void do_sacrifice( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *obj;
     char      arg [ MAX_INPUT_LENGTH ];
@@ -1416,7 +1416,7 @@ void do_sacrifice( CHAR_DATA *ch, char *argument )
 
 
 
-void do_quaff( CHAR_DATA *ch, char *argument )
+void do_quaff( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *obj;
     char      arg [ MAX_INPUT_LENGTH ];
@@ -1462,7 +1462,7 @@ void do_quaff( CHAR_DATA *ch, char *argument )
 
 
 
-void do_recite( CHAR_DATA *ch, char *argument )
+void do_recite( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA  *scroll;
     OBJ_DATA  *obj;
@@ -1585,7 +1585,7 @@ void do_recite( CHAR_DATA *ch, char *argument )
 
 
 
-void do_brandish( CHAR_DATA *ch, char *argument )
+void do_brandish( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA  *staff;
     CHAR_DATA *vch;
@@ -1730,7 +1730,7 @@ void do_brandish( CHAR_DATA *ch, char *argument )
 
 
 
-void do_zap( CHAR_DATA *ch, char *argument )
+void do_zap( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA  *wand;
     OBJ_DATA  *obj;
@@ -1884,7 +1884,7 @@ void do_zap( CHAR_DATA *ch, char *argument )
 
 
 
-void do_steal( CHAR_DATA *ch, char *argument )
+void do_steal( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA  *obj;
     CHAR_DATA *victim;
@@ -2193,7 +2193,7 @@ int get_cost( CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy )
 
 
 
-void do_buy( CHAR_DATA *ch, char *argument )
+void do_buy( CHAR_DATA *ch, const char *argument )
 {
     char arg  [ MAX_INPUT_LENGTH ];
     char arg2 [ MAX_INPUT_LENGTH ];
@@ -2344,7 +2344,7 @@ void do_buy( CHAR_DATA *ch, char *argument )
 
 
 
-void do_list( CHAR_DATA *ch, char *argument )
+void do_list( CHAR_DATA *ch, const char *argument )
 {
     char buf  [ MAX_STRING_LENGTH   ];
     char buf1 [ MAX_STRING_LENGTH*4 ];
@@ -2443,7 +2443,7 @@ void do_list( CHAR_DATA *ch, char *argument )
 
 
 
-void do_sell( CHAR_DATA *ch, char *argument )
+void do_sell( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA  *obj;
     CHAR_DATA *keeper;
@@ -2522,7 +2522,7 @@ void do_sell( CHAR_DATA *ch, char *argument )
 
 
 
-void do_value( CHAR_DATA *ch, char *argument )
+void do_value( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA  *obj;
     CHAR_DATA *keeper;
@@ -2587,7 +2587,7 @@ void do_value( CHAR_DATA *ch, char *argument )
 }
 
 /* Poison weapon by Thelonius for EnvyMud */
-void do_poison_weapon( CHAR_DATA *ch, char *argument )
+void do_poison_weapon( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *obj;
     OBJ_DATA *pobj;
@@ -2705,7 +2705,7 @@ void do_poison_weapon( CHAR_DATA *ch, char *argument )
 }
 
 /* Contributed by BoneCrusher of EnvyMud. */
-void do_donate( CHAR_DATA *ch, char *arg )
+void do_donate( CHAR_DATA *ch, const char *arg )
 {
     OBJ_DATA *container;
     OBJ_DATA *obj;
@@ -2808,7 +2808,7 @@ void do_donate( CHAR_DATA *ch, char *arg )
 }
 
 
-void do_register( CHAR_DATA *ch, char *arg )
+void do_register( CHAR_DATA *ch, const char *arg )
 {
     CHAR_DATA *mob;
     int        cost = ch->level * 1000;

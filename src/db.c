@@ -2340,7 +2340,7 @@ void free_string( char *pstr )
 
 
 
-void do_areas( CHAR_DATA *ch, char *argument )
+void do_areas( CHAR_DATA *ch, const char *argument )
 {
     AREA_DATA *pArea1;
     AREA_DATA *pArea2;
@@ -2373,7 +2373,7 @@ void do_areas( CHAR_DATA *ch, char *argument )
 
 
 
-void do_memory( CHAR_DATA *ch, char *argument )
+void do_memory( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
     char       buf [ MAX_STRING_LENGTH ];
@@ -2572,12 +2572,15 @@ int interpolate( int level, int value_00, int value_47 )
  * Removes the tildes from a string.
  * Used for player-entered strings that go into disk files.
  */
-void smash_tilde( char *str )
+void smash_tilde( const char *str )
 {
-    for ( ; *str != '\0'; str++ )
+	int i;
+	char buf[MAX_STRING_LENGTH];
+	strcpy(buf, str);
+    for (i = 0 ; buf[i] != '\0'; i++ )
     {
-	if ( *str == '~' )
-	    *str = '-';
+	if ( buf[i] == '~' )
+	    buf[i] = '-';
     }
 
     return;
@@ -2714,7 +2717,7 @@ char *capitalize( const char *str )
 /*
  * Append a string to a file.
  */
-void append_file( CHAR_DATA *ch, char *file, char *str )
+void append_file( CHAR_DATA *ch, const char *file, const char *str )
 {
     FILE *fp;
 

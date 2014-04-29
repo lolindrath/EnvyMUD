@@ -72,8 +72,8 @@ void say_spell( CHAR_DATA *ch, int sn )
 
 	       	 struct syl_type
 	         {
-		        char *	   old;
-		        char *	   new;
+		        const char *	   old;
+		        const char *	   new;
 		 };
 
     static const struct syl_type   syl_table [ ] =
@@ -165,7 +165,7 @@ bool saves_spell( int level, CHAR_DATA *victim )
  */
 char *target_name;
 
-void do_cast( CHAR_DATA *ch, char *argument )
+void do_cast( CHAR_DATA *ch, const char *argument )
 {
     void      *vo;
     OBJ_DATA  *obj;
@@ -1837,7 +1837,7 @@ void spell_invis( int sn, int level, CHAR_DATA *ch, void *vo )
 void spell_know_alignment( int sn, int level, CHAR_DATA *ch, void *vo )
 {
     CHAR_DATA *victim = (CHAR_DATA *) vo;
-    char      *msg;
+    const char      *msg;
     int        ap;
 
     ap = victim->alignment;
@@ -2681,7 +2681,7 @@ void spell_fire_breath( int sn, int level, CHAR_DATA *ch, void *vo )
     {
 	for ( obj_lose = victim->carrying; obj_lose; obj_lose = obj_next )
 	{
-	    char *msg;
+	    const char *msg;
 
 	    obj_next = obj_lose->next_content;
 	    if ( obj_lose->deleted )
@@ -2731,7 +2731,7 @@ void spell_frost_breath( int sn, int level, CHAR_DATA *ch, void *vo )
     {
 	for ( obj_lose = victim->carrying; obj_lose; obj_lose = obj_next )
 	{
-	    char *msg;
+	    const char *msg;
 
 	    obj_next = obj_lose->next_content;
 	    if ( obj_lose->deleted )

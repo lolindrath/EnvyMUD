@@ -31,7 +31,7 @@
 
 /* Conversion of Immortal powers to Immortal skills done by Thelonius */
 
-void do_wizhelp( CHAR_DATA *ch, char *argument )
+void do_wizhelp( CHAR_DATA *ch, const const char *argument )
 {
     CHAR_DATA *rch;
     char       buf  [ MAX_STRING_LENGTH ];
@@ -67,7 +67,7 @@ void do_wizhelp( CHAR_DATA *ch, char *argument )
 
 
 
-void do_bamfin( CHAR_DATA *ch, char *argument )
+void do_bamfin( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
 
@@ -91,7 +91,7 @@ void do_bamfin( CHAR_DATA *ch, char *argument )
 
 
 
-void do_bamfout( CHAR_DATA *ch, char *argument )
+void do_bamfout( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
 
@@ -115,7 +115,7 @@ void do_bamfout( CHAR_DATA *ch, char *argument )
 
 
 
-void do_deny( CHAR_DATA *ch, char *argument )
+void do_deny( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
     CHAR_DATA *victim;
@@ -163,7 +163,7 @@ void do_deny( CHAR_DATA *ch, char *argument )
 
 
 
-void do_disconnect( CHAR_DATA *ch, char *argument )
+void do_disconnect( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA       *rch;
     CHAR_DATA       *victim;
@@ -211,7 +211,7 @@ void do_disconnect( CHAR_DATA *ch, char *argument )
 
 
 
-void do_pardon( CHAR_DATA *ch, char *argument )
+void do_pardon( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
     CHAR_DATA *victim;
@@ -272,7 +272,7 @@ void do_pardon( CHAR_DATA *ch, char *argument )
 
 
 
-void do_echo( CHAR_DATA *ch, char *argument )
+void do_echo( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
     
@@ -295,7 +295,7 @@ void do_echo( CHAR_DATA *ch, char *argument )
 
 
 
-void do_recho( CHAR_DATA *ch, char *argument )
+void do_recho( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA       *rch;
     DESCRIPTOR_DATA *d;
@@ -345,7 +345,7 @@ ROOM_INDEX_DATA *find_location( CHAR_DATA *ch, char *arg )
 
 
 
-void do_transfer( CHAR_DATA *ch, char *argument )
+void do_transfer( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA       *rch;
     CHAR_DATA       *victim;
@@ -434,7 +434,7 @@ void do_transfer( CHAR_DATA *ch, char *argument )
 
 
 
-void do_at( CHAR_DATA *ch, char *argument )
+void do_at( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA       *rch;
     CHAR_DATA       *wch;
@@ -491,7 +491,7 @@ void do_at( CHAR_DATA *ch, char *argument )
 
 
 
-void do_goto( CHAR_DATA *ch, char *argument )
+void do_goto( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA       *rch;
     ROOM_INDEX_DATA *location;
@@ -546,7 +546,7 @@ void do_goto( CHAR_DATA *ch, char *argument )
 
 
 
-void do_rstat( CHAR_DATA *ch, char *argument )
+void do_rstat( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA        *obj;
     CHAR_DATA       *rch;
@@ -660,7 +660,7 @@ void do_rstat( CHAR_DATA *ch, char *argument )
 
 
 
-void do_ostat( CHAR_DATA *ch, char *argument )
+void do_ostat( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA    *obj;
     CHAR_DATA   *rch;
@@ -769,7 +769,7 @@ void do_ostat( CHAR_DATA *ch, char *argument )
 }
 
 
-void do_mstat( CHAR_DATA *ch, char *argument )
+void do_mstat( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA   *rch;
     CHAR_DATA   *victim;
@@ -921,7 +921,7 @@ void do_mstat( CHAR_DATA *ch, char *argument )
 
 
 
-void do_mfind( CHAR_DATA *ch, char *argument )
+void do_mfind( CHAR_DATA *ch, const char *argument )
 {
            CHAR_DATA      *rch;
            MOB_INDEX_DATA *pMobIndex;
@@ -988,7 +988,7 @@ void do_mfind( CHAR_DATA *ch, char *argument )
 
 
 
-void do_ofind( CHAR_DATA *ch, char *argument )
+void do_ofind( CHAR_DATA *ch, const char *argument )
 {
            CHAR_DATA      *rch;
 	   OBJ_INDEX_DATA *pObjIndex;
@@ -1048,7 +1048,7 @@ void do_ofind( CHAR_DATA *ch, char *argument )
 }
 
 
-void do_mwhere( CHAR_DATA *ch, char *argument )
+void do_mwhere( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
     CHAR_DATA *victim;
@@ -1099,7 +1099,7 @@ void do_mwhere( CHAR_DATA *ch, char *argument )
 
 
 
-void do_reboo( CHAR_DATA *ch, char *argument )
+void do_reboo( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
 
@@ -1114,7 +1114,7 @@ void do_reboo( CHAR_DATA *ch, char *argument )
 
 
 
-void do_reboot( CHAR_DATA *ch, char *argument )
+void do_reboot( CHAR_DATA *ch, const char *argument )
 {
            CHAR_DATA *rch;
            char       buf [ MAX_STRING_LENGTH ];
@@ -1136,7 +1136,7 @@ void do_reboot( CHAR_DATA *ch, char *argument )
 
 
 
-void do_shutdow( CHAR_DATA *ch, char *argument )
+void do_shutdow( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
 
@@ -1151,7 +1151,7 @@ void do_shutdow( CHAR_DATA *ch, char *argument )
 
 
 
-void do_shutdown( CHAR_DATA *ch, char *argument )
+void do_shutdown( CHAR_DATA *ch, const char *argument )
 {
            CHAR_DATA *rch;
            char       buf [ MAX_STRING_LENGTH ];
@@ -1175,7 +1175,7 @@ void do_shutdown( CHAR_DATA *ch, char *argument )
 
 
 
-void do_snoop( CHAR_DATA *ch, char *argument )
+void do_snoop( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA       *rch;
     CHAR_DATA       *victim;
@@ -1249,7 +1249,7 @@ void do_snoop( CHAR_DATA *ch, char *argument )
 
 
 
-void do_switch( CHAR_DATA *ch, char *argument )
+void do_switch( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
     CHAR_DATA *victim;
@@ -1315,7 +1315,7 @@ void do_switch( CHAR_DATA *ch, char *argument )
 
 
 
-void do_return( CHAR_DATA *ch, char *argument )
+void do_return( CHAR_DATA *ch, const char *argument )
 {
     if ( !ch->desc )
 	return;
@@ -1342,7 +1342,7 @@ void do_return( CHAR_DATA *ch, char *argument )
 
 
 
-void do_mload( CHAR_DATA *ch, char *argument )
+void do_mload( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA      *rch;
     CHAR_DATA      *victim;
@@ -1377,7 +1377,7 @@ void do_mload( CHAR_DATA *ch, char *argument )
 
 
 
-void do_oload( CHAR_DATA *ch, char *argument )
+void do_oload( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA       *obj;
     CHAR_DATA      *rch;
@@ -1444,7 +1444,7 @@ void do_oload( CHAR_DATA *ch, char *argument )
 
 
 
-void do_purge( CHAR_DATA *ch, char *argument )
+void do_purge( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA  *obj;
     CHAR_DATA *rch;
@@ -1506,7 +1506,7 @@ void do_purge( CHAR_DATA *ch, char *argument )
 
 
 
-void do_advance( CHAR_DATA *ch, char *argument )
+void do_advance( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
     CHAR_DATA *victim;
@@ -1603,7 +1603,7 @@ void do_advance( CHAR_DATA *ch, char *argument )
 
 
 
-void do_trust( CHAR_DATA *ch, char *argument )
+void do_trust( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
     CHAR_DATA *victim;
@@ -1654,7 +1654,7 @@ void do_trust( CHAR_DATA *ch, char *argument )
 
 
 
-void do_restore( CHAR_DATA *ch, char *argument )
+void do_restore( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
     CHAR_DATA *victim;
@@ -1708,7 +1708,7 @@ void do_restore( CHAR_DATA *ch, char *argument )
 
 
 
-void do_freeze( CHAR_DATA *ch, char *argument )
+void do_freeze( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
     CHAR_DATA *victim;
@@ -1765,7 +1765,7 @@ void do_freeze( CHAR_DATA *ch, char *argument )
 
 
 
-void do_log( CHAR_DATA *ch, char *argument )
+void do_log( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
     CHAR_DATA *victim;
@@ -1830,7 +1830,7 @@ void do_log( CHAR_DATA *ch, char *argument )
 
 
 
-void do_noemote( CHAR_DATA *ch, char *argument )
+void do_noemote( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
     CHAR_DATA *victim;
@@ -1885,7 +1885,7 @@ void do_noemote( CHAR_DATA *ch, char *argument )
 
 
 
-void do_notell( CHAR_DATA *ch, char *argument )
+void do_notell( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
     CHAR_DATA *victim;
@@ -1940,7 +1940,7 @@ void do_notell( CHAR_DATA *ch, char *argument )
 
 
 
-void do_silence( CHAR_DATA *ch, char *argument )
+void do_silence( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
     CHAR_DATA *victim;
@@ -1994,7 +1994,7 @@ void do_silence( CHAR_DATA *ch, char *argument )
 }
 
 
-void do_peace( CHAR_DATA *ch, char *argument )
+void do_peace( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
 
@@ -2019,7 +2019,7 @@ void do_peace( CHAR_DATA *ch, char *argument )
 BAN_DATA *		ban_free;
 BAN_DATA *		ban_list;
 
-void do_ban( CHAR_DATA *ch, char *argument )
+void do_ban( CHAR_DATA *ch, const char *argument )
 {
     BAN_DATA  *pban;
     CHAR_DATA *rch;
@@ -2077,7 +2077,7 @@ void do_ban( CHAR_DATA *ch, char *argument )
 
 
 
-void do_allow( CHAR_DATA *ch, char *argument )
+void do_allow( CHAR_DATA *ch, const char *argument )
 {
     BAN_DATA  *prev;
     BAN_DATA  *curr;
@@ -2122,7 +2122,7 @@ void do_allow( CHAR_DATA *ch, char *argument )
 
 
 
-void do_wizlock( CHAR_DATA *ch, char *argument )
+void do_wizlock( CHAR_DATA *ch, const char *argument )
 {
            CHAR_DATA *rch;
     extern bool       wizlock;
@@ -2144,7 +2144,7 @@ void do_wizlock( CHAR_DATA *ch, char *argument )
 
 
 
-void do_slookup( CHAR_DATA *ch, char *argument )
+void do_slookup( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
     char       buf  [ MAX_STRING_LENGTH ];
@@ -2209,7 +2209,7 @@ void do_slookup( CHAR_DATA *ch, char *argument )
 
 
 
-void do_sset( CHAR_DATA *ch, char *argument )
+void do_sset( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
     CHAR_DATA *victim;
@@ -2290,12 +2290,20 @@ void do_sset( CHAR_DATA *ch, char *argument )
 	for ( sn = 0; sn < MAX_SKILL; sn++ )
 	{
 	    if ( skill_table[sn].name )
+		{
 	        if ( skill_table[sn].skill_level[victim->class] <= LEVEL_HERO )
-		    victim->pcdata->learned[sn]	= value;
+			{
+				victim->pcdata->learned[sn]	= value;
+			}
+		}
 		else
+		{
 		    if ( skill_table[sn].skill_level[victim->class]
-			<= get_trust( victim ) )
+				<= get_trust( victim ) )
+			{
 		        victim->pcdata->learned[sn] = 1;
+			}
+		}
 	}
     }
     else
@@ -2308,7 +2316,7 @@ void do_sset( CHAR_DATA *ch, char *argument )
 
 
 
-void do_mset( CHAR_DATA *ch, char *argument )
+void do_mset( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
     CHAR_DATA *victim;
@@ -2794,7 +2802,7 @@ void do_mset( CHAR_DATA *ch, char *argument )
 
 
 
-void do_oset( CHAR_DATA *ch, char *argument )
+void do_oset( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA  *obj;
     CHAR_DATA *rch;
@@ -2979,7 +2987,7 @@ void do_oset( CHAR_DATA *ch, char *argument )
 
 
 
-void do_rset( CHAR_DATA *ch, char *argument )
+void do_rset( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA       *rch;
     CHAR_DATA       *person;
@@ -3057,7 +3065,7 @@ void do_rset( CHAR_DATA *ch, char *argument )
 
 
 
-void do_users( CHAR_DATA *ch, char *argument )
+void do_users( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA       *rch;
     DESCRIPTOR_DATA *d;
@@ -3098,7 +3106,7 @@ void do_users( CHAR_DATA *ch, char *argument )
 /*
  * Thanks to Grodyn for pointing out bugs in this function.
  */
-void do_force( CHAR_DATA *ch, char *argument )
+void do_force( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
     char       arg [ MAX_INPUT_LENGTH ];
@@ -3184,7 +3192,7 @@ void do_force( CHAR_DATA *ch, char *argument )
 /*
  * New routines by Dionysos.
  */
-void do_invis( CHAR_DATA *ch, char *argument )
+void do_invis( CHAR_DATA *ch, const char *argument )
 {
     if ( IS_NPC( ch ) )
 	return;
@@ -3210,7 +3218,7 @@ void do_invis( CHAR_DATA *ch, char *argument )
 
 
 
-void do_holylight( CHAR_DATA *ch, char *argument )
+void do_holylight( CHAR_DATA *ch, const char *argument )
 {
     if ( IS_NPC( ch ) )
 	return;
@@ -3234,7 +3242,7 @@ void do_holylight( CHAR_DATA *ch, char *argument )
 
 /* Wizify and Wizbit sent in by M. B. King */
 
-void do_wizify( CHAR_DATA *ch, char *argument )
+void do_wizify( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
     CHAR_DATA *victim;
@@ -3283,7 +3291,7 @@ void do_wizify( CHAR_DATA *ch, char *argument )
 
 /* Idea from Talen of Vego's do_where command */
 
-void do_owhere( CHAR_DATA *ch, char *argument )
+void do_owhere( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA  *obj;
     OBJ_DATA  *in_obj;
@@ -3359,7 +3367,7 @@ void do_owhere( CHAR_DATA *ch, char *argument )
 
 }
 
-void do_numlock( CHAR_DATA *ch, char *argument )  /*By Globi*/
+void do_numlock( CHAR_DATA *ch, const char *argument )  /*By Globi*/
 {
            CHAR_DATA *rch;
 	   char       buf  [ MAX_STRING_LENGTH ];
@@ -3404,7 +3412,7 @@ void do_numlock( CHAR_DATA *ch, char *argument )  /*By Globi*/
 
 }
 
-void do_newlock( CHAR_DATA *ch, char *argument )
+void do_newlock( CHAR_DATA *ch, const char *argument )
 {
            CHAR_DATA *rch;
     extern int        numlock;
@@ -3437,7 +3445,7 @@ void do_newlock( CHAR_DATA *ch, char *argument )
 
 }
 
-void do_sstime( CHAR_DATA *ch, char *argument )
+void do_sstime( CHAR_DATA *ch, const char *argument )
 {
            CHAR_DATA *rch;
     extern time_t     down_time;
@@ -3536,7 +3544,7 @@ void do_sstime( CHAR_DATA *ch, char *argument )
 
 }
 
-void do_imtlset( CHAR_DATA *ch, char *argument )
+void do_imtlset( CHAR_DATA *ch, const char *argument )
 {
 
     CHAR_DATA *rch;

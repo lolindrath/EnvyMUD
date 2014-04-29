@@ -93,7 +93,7 @@ SPEC_FUN *spec_lookup( const char *name )
 /*
  * Core procedure for dragons.
  */
-bool dragon( CHAR_DATA *ch, char *spell_name )
+bool dragon( CHAR_DATA *ch, const char *spell_name )
 {
     CHAR_DATA *victim;
     int        sn;
@@ -263,7 +263,7 @@ bool spec_cast_adept( CHAR_DATA *ch )
 bool spec_cast_cleric( CHAR_DATA *ch )
 {
     CHAR_DATA *victim;
-    char      *spell;
+    const char      *spell;
     int        sn;
 
     if ( ch->position != POS_FIGHTING )
@@ -318,7 +318,7 @@ bool spec_cast_cleric( CHAR_DATA *ch )
 bool spec_cast_judge( CHAR_DATA *ch )
 {
     CHAR_DATA *victim;
-    char      *spell;
+    const char      *spell;
     int        sn;
 
     if ( ch->position != POS_FIGHTING )
@@ -350,7 +350,7 @@ bool spec_cast_judge( CHAR_DATA *ch )
 bool spec_cast_mage( CHAR_DATA *ch )
 {
     CHAR_DATA *victim;
-    char      *spell;
+    const char      *spell;
     int        sn;
 
     if ( ch->position != POS_FIGHTING )
@@ -406,7 +406,7 @@ bool spec_cast_mage( CHAR_DATA *ch )
 bool spec_cast_undead( CHAR_DATA *ch )
 {
     CHAR_DATA *victim;
-    char      *spell;
+    const char      *spell;
     int        sn;
 
     if ( ch->position != POS_FIGHTING )
@@ -465,7 +465,7 @@ bool spec_cast_undead( CHAR_DATA *ch )
 bool spec_executioner( CHAR_DATA *ch )
 {
     CHAR_DATA *victim;
-    char      *crime;
+    const char      *crime;
     char       buf [ MAX_STRING_LENGTH ];
 
     if ( !IS_AWAKE( ch ) || ch->fighting )
@@ -540,7 +540,7 @@ bool spec_guard( CHAR_DATA *ch )
 {
     CHAR_DATA *victim;
     CHAR_DATA *ech;
-    char      *crime;
+    const char      *crime;
     char       buf [ MAX_STRING_LENGTH ];
     int        max_evil;
 
@@ -787,7 +787,7 @@ bool spec_thief( CHAR_DATA *ch )
 bool spec_cast_psionicist( CHAR_DATA *ch )
 {
     CHAR_DATA *victim;
-    char      *spell;
+    const char      *spell;
     int        sn;
 
     if ( ch->position != POS_FIGHTING )
@@ -842,7 +842,7 @@ bool spec_cast_psionicist( CHAR_DATA *ch )
 bool spec_cast_ghost( CHAR_DATA *ch )
 {
     CHAR_DATA *victim;
-    char      *spell;
+    const char      *spell;
     int        sn;
 
     if  ( weather_info.sunlight != SUN_DARK )

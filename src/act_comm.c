@@ -37,7 +37,7 @@
 bool	is_note_to	args( ( CHAR_DATA *ch, NOTE_DATA *pnote ) );
 void	note_attach	args( ( CHAR_DATA *ch ) );
 void	note_remove	args( ( CHAR_DATA *ch, NOTE_DATA *pnote ) );
-void	talk_channel	args( ( CHAR_DATA *ch, char *argument,
+void	talk_channel	args( ( CHAR_DATA *ch, const char *argument,
 			    int channel, const char *verb ) );
 
 
@@ -186,7 +186,7 @@ void note_remove( CHAR_DATA *ch, NOTE_DATA *pnote )
 
 
 /* Date stamp idea comes from Alander of ROM */
-void do_note( CHAR_DATA *ch, char *argument )
+void do_note( CHAR_DATA *ch, const char *argument )
 {
     NOTE_DATA *pnote;
     char       buf  [ MAX_STRING_LENGTH   ];
@@ -489,7 +489,7 @@ void do_note( CHAR_DATA *ch, char *argument )
 /*
  * Generic channel function.
  */
-void talk_channel( CHAR_DATA *ch, char *argument, int channel,
+void talk_channel( CHAR_DATA *ch, const char *argument, int channel,
 		  const char *verb )
 {
     DESCRIPTOR_DATA *d;
@@ -568,7 +568,7 @@ void talk_channel( CHAR_DATA *ch, char *argument, int channel,
 
 
 
-void do_auction( CHAR_DATA *ch, char *argument )
+void do_auction( CHAR_DATA *ch, const char *argument )
 {
     talk_channel( ch, argument, CHANNEL_AUCTION, "auction" );
     return;
@@ -576,7 +576,7 @@ void do_auction( CHAR_DATA *ch, char *argument )
 
 
 
-void do_chat( CHAR_DATA *ch, char *argument )
+void do_chat( CHAR_DATA *ch, const char *argument )
 {
     talk_channel( ch, argument, CHANNEL_CHAT, "chat" );
     return;
@@ -587,7 +587,7 @@ void do_chat( CHAR_DATA *ch, char *argument )
 /*
  * Alander's new channels.
  */
-void do_music( CHAR_DATA *ch, char *argument )
+void do_music( CHAR_DATA *ch, const char *argument )
 {
     talk_channel( ch, argument, CHANNEL_MUSIC, "music" );
     return;
@@ -595,7 +595,7 @@ void do_music( CHAR_DATA *ch, char *argument )
 
 
 
-void do_question( CHAR_DATA *ch, char *argument )
+void do_question( CHAR_DATA *ch, const char *argument )
 {
     talk_channel( ch, argument, CHANNEL_QUESTION, "question" );
     return;
@@ -603,7 +603,7 @@ void do_question( CHAR_DATA *ch, char *argument )
 
 
 
-void do_answer( CHAR_DATA *ch, char *argument )
+void do_answer( CHAR_DATA *ch, const char *argument )
 {
     talk_channel( ch, argument, CHANNEL_QUESTION, "answer" );
     return;
@@ -611,7 +611,7 @@ void do_answer( CHAR_DATA *ch, char *argument )
 
 
 
-void do_shout( CHAR_DATA *ch, char *argument )
+void do_shout( CHAR_DATA *ch, const char *argument )
 {
     talk_channel( ch, argument, CHANNEL_SHOUT, "shout" );
     WAIT_STATE( ch, 12 );
@@ -620,7 +620,7 @@ void do_shout( CHAR_DATA *ch, char *argument )
 
 
 
-void do_yell( CHAR_DATA *ch, char *argument )
+void do_yell( CHAR_DATA *ch, const char *argument )
 {
     talk_channel( ch, argument, CHANNEL_YELL, "yell" );
     return;
@@ -628,7 +628,7 @@ void do_yell( CHAR_DATA *ch, char *argument )
 
 
 
-void do_immtalk( CHAR_DATA *ch, char *argument )
+void do_immtalk( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
   
@@ -643,7 +643,7 @@ void do_immtalk( CHAR_DATA *ch, char *argument )
 
 
 
-void do_say( CHAR_DATA *ch, char *argument )
+void do_say( CHAR_DATA *ch, const char *argument )
 {
     if ( argument[0] == '\0' )
     {
@@ -665,7 +665,7 @@ void do_say( CHAR_DATA *ch, char *argument )
 
 
 
-void do_tell( CHAR_DATA *ch, char *argument )
+void do_tell( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *victim;
     char       arg [ MAX_INPUT_LENGTH ];
@@ -728,7 +728,7 @@ void do_tell( CHAR_DATA *ch, char *argument )
 
 
 
-void do_reply( CHAR_DATA *ch, char *argument )
+void do_reply( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *victim;
     int        position;
@@ -781,7 +781,7 @@ void do_reply( CHAR_DATA *ch, char *argument )
 
 
 
-void do_emote( CHAR_DATA *ch, char *argument )
+void do_emote( CHAR_DATA *ch, const char *argument )
 {
     char  buf [ MAX_STRING_LENGTH ];
     char *plast;
@@ -817,10 +817,10 @@ void do_emote( CHAR_DATA *ch, char *argument )
  */
 struct	pose_table_type
 {
-    char * message[ 2*MAX_CLASS ];
+    const char * message[ 2*MAX_CLASS ];
 };
 
-const	struct	pose_table_type	pose_table	[]	=
+struct	pose_table_type	pose_table	[]	=
 {
     {
 	{
@@ -1078,7 +1078,7 @@ const	struct	pose_table_type	pose_table	[]	=
     }
 };
 
-void do_pose( CHAR_DATA *ch, char *argument )
+void do_pose( CHAR_DATA *ch, const char *argument )
 {
     int level;
     int pose;
@@ -1098,7 +1098,7 @@ void do_pose( CHAR_DATA *ch, char *argument )
 
 
 
-void do_bug( CHAR_DATA *ch, char *argument )
+void do_bug( CHAR_DATA *ch, const char *argument )
 {
     if ( argument[0] == '\0' )
     {
@@ -1113,7 +1113,7 @@ void do_bug( CHAR_DATA *ch, char *argument )
 
 
 
-void do_idea( CHAR_DATA *ch, char *argument )
+void do_idea( CHAR_DATA *ch, const char *argument )
 {
     if ( argument[0] == '\0' )
     {
@@ -1128,7 +1128,7 @@ void do_idea( CHAR_DATA *ch, char *argument )
 
 
 
-void do_typo( CHAR_DATA *ch, char *argument )
+void do_typo( CHAR_DATA *ch, const char *argument )
 {
     if ( argument[0] == '\0' )
     {
@@ -1143,7 +1143,7 @@ void do_typo( CHAR_DATA *ch, char *argument )
 
 
 
-void do_rent( CHAR_DATA *ch, char *argument )
+void do_rent( CHAR_DATA *ch, const char *argument )
 {
     send_to_char( "There is no rent here.  Just save and quit.\n\r", ch );
     return;
@@ -1151,7 +1151,7 @@ void do_rent( CHAR_DATA *ch, char *argument )
 
 
 
-void do_qui( CHAR_DATA *ch, char *argument )
+void do_qui( CHAR_DATA *ch, const char *argument )
 {
     send_to_char( "If you want to QUIT, you have to spell it out.\n\r", ch );
     return;
@@ -1159,7 +1159,7 @@ void do_qui( CHAR_DATA *ch, char *argument )
 
 
 
-void do_quit( CHAR_DATA *ch, char *argument )
+void do_quit( CHAR_DATA *ch, const char *argument )
 {
     DESCRIPTOR_DATA *d;
 
@@ -1200,7 +1200,7 @@ void do_quit( CHAR_DATA *ch, char *argument )
 
 
 
-void do_save( CHAR_DATA *ch, char *argument )
+void do_save( CHAR_DATA *ch, const char *argument )
 {
     if ( IS_NPC( ch ) )
 	return;
@@ -1218,7 +1218,7 @@ void do_save( CHAR_DATA *ch, char *argument )
 
 
 
-void do_follow( CHAR_DATA *ch, char *argument )
+void do_follow( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *victim;
     char       arg [ MAX_INPUT_LENGTH ];
@@ -1346,7 +1346,7 @@ void die_follower( CHAR_DATA *ch, char *name )
 
 
 
-void do_order( CHAR_DATA *ch, char *argument )
+void do_order( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *victim;
     CHAR_DATA *och;
@@ -1423,7 +1423,7 @@ void do_order( CHAR_DATA *ch, char *argument )
 
 
 
-void do_group( CHAR_DATA *ch, char *argument )
+void do_group( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *victim;
     char       buf [ MAX_STRING_LENGTH ];
@@ -1510,7 +1510,7 @@ void do_group( CHAR_DATA *ch, char *argument )
 /*
  * 'Split' originally by Gnort, God of Chaos.
  */
-void do_split( CHAR_DATA *ch, char *argument )
+void do_split( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *gch;
     char       buf [ MAX_STRING_LENGTH ];
@@ -1599,7 +1599,7 @@ void do_split( CHAR_DATA *ch, char *argument )
 
 
 
-void do_gtell( CHAR_DATA *ch, char *argument )
+void do_gtell( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *gch;
     char       buf [ MAX_STRING_LENGTH ];

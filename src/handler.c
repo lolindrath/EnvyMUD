@@ -1599,7 +1599,7 @@ bool can_drop_obj( CHAR_DATA *ch, OBJ_DATA *obj )
 /*
  * Return ascii name of an item type.
  */
-char *item_type_name( OBJ_DATA *obj )
+const char *item_type_name( OBJ_DATA *obj )
 {
     OBJ_DATA *in_obj;
     char      buf [ MAX_STRING_LENGTH ];
@@ -1648,7 +1648,7 @@ char *item_type_name( OBJ_DATA *obj )
 /*
  * Return ascii name of an affect location.
  */
-char *affect_loc_name( int location )
+const char *affect_loc_name( int location )
 {
     switch ( location )
     {
@@ -1773,7 +1773,7 @@ bool longstring( CHAR_DATA *ch, char *argument )
         return FALSE;
 }
 
-bool authorized( CHAR_DATA *ch, char *skllnm )
+bool authorized( CHAR_DATA *ch, const char *skllnm )
 {
 
     char buf [ MAX_STRING_LENGTH ];

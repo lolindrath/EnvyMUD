@@ -851,7 +851,7 @@ void obj_update( void )
     for ( obj = object_list; obj; obj = obj_next )
     {
 	CHAR_DATA *rch;
-	char      *message;
+	const char      *message;
 
 	obj_next = obj->next;
 	if ( obj->deleted )

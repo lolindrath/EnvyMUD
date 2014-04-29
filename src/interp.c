@@ -429,11 +429,11 @@ const	struct	social_type	social_table [ ] =
 
     {
         "beef",
-        "You loudly exclaim 'WHERE'S THE BEEF??????'",
-        "$n loudly exclaims 'WHERE'S THE BEEF??????'",
-        "You poke $N and exclaim, 'WHERE'S THE BEEF?????'",
-        "$n pokes $N, and exclaims, 'WHERE'S THE BEEF????'",
-        "$n pokes you and exclaims, 'WHERE'S THE BEEF????'",
+        "You loudly exclaim 'WHERE'S THE BEEF\?\?\?\?\?\?'",
+        "$n loudly exclaims 'WHERE'S THE BEEF\?\?\?\?\?\?'",
+        "You poke $N and exclaim, 'WHERE'S THE BEEF\?\?\?\?\?'",
+        "$n pokes $N, and exclaims, 'WHERE'S THE BEEF\?\?\?\?'",
+        "$n pokes you and exclaims, 'WHERE'S THE BEEF\?\?\?\?'",
         "You poke your fat rolls and exclaim, 'Oh, THERE'S THE BEEF!'",
         "$n pokes his fat rolls, and exclaims, 'Oh, THERE'S THE BEEF!'"
     },
@@ -3228,7 +3228,7 @@ bool check_social( CHAR_DATA *ch, char *command, char *argument )
 /*
  * Return true if an argument is completely numeric.
  */
-bool is_number( char *arg )
+bool is_number( const char *arg )
 {
     if ( *arg == '\0' )
 	return FALSE;
@@ -3277,7 +3277,7 @@ int number_argument( char *argument, char *arg )
  * Pick off one argument from a string and return the rest.
  * Understands quotes.
  */
-char *one_argument( char *argument, char *arg_first )
+char *one_argument( const char *argument, char *arg_first )
 {
     char cEnd;
 

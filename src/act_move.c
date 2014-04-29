@@ -30,7 +30,7 @@
 
 
 
-char *	const	dir_name	[ ]		=
+const char *	dir_name	[ ]		=
 {
     "north", "east", "south", "west", "up", "down"
 };
@@ -225,13 +225,19 @@ void move_char( CHAR_DATA *ch, int door )
 
     if ( !IS_AFFECTED( ch, AFF_SNEAK )
 	&& ( IS_NPC( ch ) || !IS_SET( ch->act, PLR_WIZINVIS ) ) )
+	{
         if (     (   ( in_room->sector_type == SECT_WATER_SWIM )
 	          || ( in_room->sector_type == SECT_UNDERWATER ) )
 	    &&   (   ( to_room->sector_type == SECT_WATER_SWIM )
 		  || ( to_room->sector_type == SECT_UNDERWATER ) ) )
-	    act( "$n swims $T.",  ch, NULL, dir_name[door], TO_ROOM );
+		{
+			act( "$n swims $T.",  ch, NULL, dir_name[door], TO_ROOM );
+		}
+	}
 	else
+	{
 	    act( "$n leaves $T.", ch, NULL, dir_name[door], TO_ROOM );
+	}
 
     char_from_room( ch );
     char_to_room( ch, to_room );
@@ -282,7 +288,7 @@ void move_char( CHAR_DATA *ch, int door )
 
 
 
-void do_north( CHAR_DATA *ch, char *argument )
+void do_north( CHAR_DATA *ch, const char *argument )
 {
     move_char( ch, DIR_NORTH );
     return;
@@ -290,7 +296,7 @@ void do_north( CHAR_DATA *ch, char *argument )
 
 
 
-void do_east( CHAR_DATA *ch, char *argument )
+void do_east( CHAR_DATA *ch, const char *argument )
 {
     move_char( ch, DIR_EAST );
     return;
@@ -298,7 +304,7 @@ void do_east( CHAR_DATA *ch, char *argument )
 
 
 
-void do_south( CHAR_DATA *ch, char *argument )
+void do_south( CHAR_DATA *ch, const char *argument )
 {
     move_char( ch, DIR_SOUTH );
     return;
@@ -306,7 +312,7 @@ void do_south( CHAR_DATA *ch, char *argument )
 
 
 
-void do_west( CHAR_DATA *ch, char *argument )
+void do_west( CHAR_DATA *ch, const char *argument )
 {
     move_char( ch, DIR_WEST );
     return;
@@ -314,7 +320,7 @@ void do_west( CHAR_DATA *ch, char *argument )
 
 
 
-void do_up( CHAR_DATA *ch, char *argument )
+void do_up( CHAR_DATA *ch, const char *argument )
 {
     move_char( ch, DIR_UP );
     return;
@@ -322,7 +328,7 @@ void do_up( CHAR_DATA *ch, char *argument )
 
 
 
-void do_down( CHAR_DATA *ch, char *argument )
+void do_down( CHAR_DATA *ch, const char *argument )
 {
     move_char( ch, DIR_DOWN );
     return;
@@ -372,7 +378,7 @@ int find_door( CHAR_DATA *ch, char *arg )
 
 
 
-void do_open( CHAR_DATA *ch, char *argument )
+void do_open( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *obj;
     char      arg [ MAX_INPUT_LENGTH ];
@@ -443,7 +449,7 @@ void do_open( CHAR_DATA *ch, char *argument )
 
 
 
-void do_close( CHAR_DATA *ch, char *argument )
+void do_close( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *obj;
     char      arg [ MAX_INPUT_LENGTH ];
@@ -535,7 +541,7 @@ bool has_key( CHAR_DATA *ch, int key )
 
 
 
-void do_lock( CHAR_DATA *ch, char *argument )
+void do_lock( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *obj;
     char      arg [ MAX_INPUT_LENGTH ];
@@ -604,7 +610,7 @@ void do_lock( CHAR_DATA *ch, char *argument )
 
 
 
-void do_unlock( CHAR_DATA *ch, char *argument )
+void do_unlock( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *obj;
     char      arg [ MAX_INPUT_LENGTH ];
@@ -673,7 +679,7 @@ void do_unlock( CHAR_DATA *ch, char *argument )
 
 
 
-void do_pick( CHAR_DATA *ch, char *argument )
+void do_pick( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA  *obj;
     CHAR_DATA *gch;
@@ -765,7 +771,7 @@ void do_pick( CHAR_DATA *ch, char *argument )
 
 
 
-void do_stand( CHAR_DATA *ch, char *argument )
+void do_stand( CHAR_DATA *ch, const char *argument )
 {
     switch ( ch->position )
     {
@@ -798,7 +804,7 @@ void do_stand( CHAR_DATA *ch, char *argument )
 
 
 
-void do_rest( CHAR_DATA *ch, char *argument )
+void do_rest( CHAR_DATA *ch, const char *argument )
 {
     switch ( ch->position )
     {
@@ -826,7 +832,7 @@ void do_rest( CHAR_DATA *ch, char *argument )
 
 
 
-void do_sleep( CHAR_DATA *ch, char *argument )
+void do_sleep( CHAR_DATA *ch, const char *argument )
 {
     switch ( ch->position )
     {
@@ -851,7 +857,7 @@ void do_sleep( CHAR_DATA *ch, char *argument )
 
 
 
-void do_wake( CHAR_DATA *ch, char *argument )
+void do_wake( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *victim;
     char       arg [ MAX_INPUT_LENGTH ];
@@ -880,7 +886,7 @@ void do_wake( CHAR_DATA *ch, char *argument )
 
 
 
-void do_sneak( CHAR_DATA *ch, char *argument )
+void do_sneak( CHAR_DATA *ch, const char *argument )
 {
     AFFECT_DATA af;
 
@@ -909,7 +915,7 @@ void do_sneak( CHAR_DATA *ch, char *argument )
 
 
 
-void do_hide( CHAR_DATA *ch, char *argument )
+void do_hide( CHAR_DATA *ch, const char *argument )
 {
     if ( !IS_NPC( ch )
 	&& ch->level < skill_table[gsn_hide].skill_level[ch->class] )
@@ -934,7 +940,7 @@ void do_hide( CHAR_DATA *ch, char *argument )
 /*
  * Contributed by Alander.
  */
-void do_visible( CHAR_DATA *ch, char *argument )
+void do_visible( CHAR_DATA *ch, const char *argument )
 {
     affect_strip ( ch, gsn_invis			);
     affect_strip ( ch, gsn_mass_invis			);
@@ -949,7 +955,7 @@ void do_visible( CHAR_DATA *ch, char *argument )
 
 
 
-void do_recall( CHAR_DATA *ch, char *argument )
+void do_recall( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA       *victim;
     ROOM_INDEX_DATA *location;
@@ -1008,10 +1014,10 @@ void do_recall( CHAR_DATA *ch, char *argument )
 
 
 
-void do_train( CHAR_DATA *ch, char *argument )
+void do_train( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *mob;
-    char      *pOutput;
+    const char      *pOutput;
     char       buf [ MAX_STRING_LENGTH ];
     bool       ok = FALSE;
     int       *pAbility;
@@ -1229,7 +1235,7 @@ void do_train( CHAR_DATA *ch, char *argument )
     return;
 }
 
-void do_chameleon ( CHAR_DATA *ch, char *argument )
+void do_chameleon ( CHAR_DATA *ch, const char *argument )
 {
     if ( !IS_NPC( ch )
 	&& ch->level < skill_table[gsn_chameleon].skill_level[ch->class] )
@@ -1249,7 +1255,7 @@ void do_chameleon ( CHAR_DATA *ch, char *argument )
     return;
 }
 
-void do_heighten ( CHAR_DATA *ch, char *argument )
+void do_heighten ( CHAR_DATA *ch, const char *argument )
 {
     AFFECT_DATA af;
 
@@ -1284,7 +1290,7 @@ void do_heighten ( CHAR_DATA *ch, char *argument )
 
 }
 
-void do_shadow ( CHAR_DATA *ch, char *argument )
+void do_shadow ( CHAR_DATA *ch, const char *argument )
 {
     AFFECT_DATA af;
 
@@ -1316,7 +1322,7 @@ void do_shadow ( CHAR_DATA *ch, char *argument )
  * Damage modified using Morpheus's code
  * Message for bashproof doors by that wacky guy Kahn
  */
-void do_bash( CHAR_DATA *ch, char *argument )
+void do_bash( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *gch;
     char       arg [ MAX_INPUT_LENGTH ];
@@ -1460,7 +1466,7 @@ void do_bash( CHAR_DATA *ch, char *argument )
 }
 
 /* Snare skill by Binky for EnvyMud */
-void do_snare( CHAR_DATA *ch, char *argument )
+void do_snare( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA   *victim;
     AFFECT_DATA  af;
@@ -1604,7 +1610,7 @@ void do_snare( CHAR_DATA *ch, char *argument )
 
 
 /* Untangle by Thelonius for EnvyMud */
-void do_untangle( CHAR_DATA *ch, char *argument )
+void do_untangle( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA   *victim;
     char         arg [ MAX_INPUT_LENGTH ];
@@ -1657,7 +1663,7 @@ void do_untangle( CHAR_DATA *ch, char *argument )
  *  Menu for all game functions.
  *  Thelonius (Monk)  5/94
  */
-void do_bet( CHAR_DATA *ch, char *argument )
+void do_bet( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *croupier;
 

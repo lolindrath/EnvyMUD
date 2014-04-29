@@ -66,7 +66,7 @@ typedef struct	weather_data		WEATHER_DATA;
  * Function types.
  */
 typedef	void DO_FUN                     args( ( CHAR_DATA *ch,
-					       char *argument ) );
+					       const char *argument ) );
 typedef bool SPEC_FUN                   args( ( CHAR_DATA *ch ) );
 typedef void SPELL_FUN                  args( ( int sn, int level,
 					       CHAR_DATA *ch, void *vo ) );
@@ -172,7 +172,7 @@ struct	weather_data
  */
 struct  race_type
 {
-    char *              name;
+    const char *        name;
     int                 race_abilities;
     int                 size;
     int                 str_mod;
@@ -180,8 +180,8 @@ struct  race_type
     int                 wis_mod;
     int                 dex_mod;
     int                 con_mod;
-    char *              dmg_message;
-    char *              hate;
+    const char *        dmg_message;
+    const char *        hate;
 };
 
 /* Race ability bits */
@@ -908,8 +908,8 @@ struct	pc_data
 
 struct	liq_type
 {
-    char               *liq_name;
-    char               *liq_color;
+    const char          *liq_name;
+    const char          *liq_color;
     int                 liq_affect [ 3 ];
 };
 
@@ -1087,7 +1087,7 @@ struct	room_index_data
  */
 struct	skill_type
 {
-    char *	name;			   /* Name of skill		 */
+    const char *	name;			   /* Name of skill		 */
     int 	skill_level [ MAX_CLASS ]; /* Level needed by class	 */
     SPELL_FUN *	spell_fun;		   /* Spell pointer (for spells) */
     int 	target;			   /* Legal targets		 */
@@ -1095,8 +1095,8 @@ struct	skill_type
     int *	pgsn;			   /* Pointer to associated gsn	 */
     int 	min_mana;		   /* Minimum mana used		 */
     int 	beats;			   /* Waiting time after use	 */
-    char *	noun_damage;		   /* Damage message		 */
-    char *	msg_off;		   /* Wear off message		 */
+    const char *	noun_damage;		   /* Damage message		 */
+    const char *	msg_off;		   /* Wear off message		 */
 };
 
 
@@ -1231,8 +1231,8 @@ extern  int     gsn_vampiric_bite;
  */
 struct	cmd_type
 {
-    char * const	name;
-    DO_FUN *		do_fun;
+    const char *name;
+    DO_FUN *	do_fun;
     int 		position;
     int 		level;
     int 		log;
@@ -1245,14 +1245,14 @@ struct	cmd_type
  */
 struct	social_type
 {
-    char * const	name;
-    char * const	char_no_arg;
-    char * const	others_no_arg;
-    char * const	char_found;
-    char * const	others_found;
-    char * const	vict_found;
-    char * const	char_auto;
-    char * const	others_auto;
+    const char * name;
+    const char * char_no_arg;
+    const char * others_no_arg;
+    const char * char_found;
+    const char * others_found;
+    const char * vict_found;
+    const char * char_auto;
+    const char * others_auto;
 };
 
 
@@ -1271,7 +1271,7 @@ extern	const	struct	cmd_type	cmd_table	[ ];
 extern	const	struct	liq_type	liq_table	[ LIQ_MAX     ];
 extern	const	struct	skill_type	skill_table	[ MAX_SKILL   ];
 extern	const	struct	social_type	social_table	[ ];
-extern	char *	const			title_table	[ MAX_CLASS   ]
+extern	const char *	title_table	[ MAX_CLASS   ]
 							[ MAX_LEVEL+1 ]
 							[ 2 ];
 extern  const   struct  race_type       race_table      [ MAX_RACE ];
@@ -1746,13 +1746,13 @@ int	number_bits	args( ( int width ) );
 int	number_mm	args( ( void ) );
 int	dice		args( ( int number, int size ) );
 int	interpolate	args( ( int level, int value_00, int value_32 ) );
-void	smash_tilde	args( ( char *str ) );
+void	smash_tilde	args( ( const char *str ) );
 bool	str_cmp		args( ( const char *astr, const char *bstr ) );
 bool	str_prefix	args( ( const char *astr, const char *bstr ) );
 bool	str_infix	args( ( const char *astr, const char *bstr ) );
 bool	str_suffix	args( ( const char *astr, const char *bstr ) );
 char *	capitalize	args( ( const char *str ) );
-void	append_file	args( ( CHAR_DATA *ch, char *file, char *str ) );
+void	append_file	args( ( CHAR_DATA *ch, const char *file, const char *str ) );
 void	bug		args( ( const char *str, int param ) );
 void	log_string	args( ( const char *str ) );
 void	tail_chain	args( ( void ) );
@@ -1820,22 +1820,22 @@ bool	room_is_private	args( ( ROOM_INDEX_DATA *pRoomIndex ) );
 bool	can_see		args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
 bool	can_see_obj	args( ( CHAR_DATA *ch, OBJ_DATA *obj ) );
 bool	can_drop_obj	args( ( CHAR_DATA *ch, OBJ_DATA *obj ) );
-char *	item_type_name	args( ( OBJ_DATA *obj ) );
-char *	affect_loc_name	args( ( int location ) );
+const char *	item_type_name	args( ( OBJ_DATA *obj ) );
+const char *	affect_loc_name	args( ( int location ) );
 char *	affect_bit_name	args( ( int vector ) );
 char *	extra_bit_name	args( ( int extra_flags ) );
 CD   *  get_char        args( ( CHAR_DATA *ch ) );
 bool    longstring      args( ( CHAR_DATA *ch, char *argument ) );
-bool    authorized      args( ( CHAR_DATA *ch, char *skllnm ) );
+bool    authorized      args( ( CHAR_DATA *ch, const char *skllnm ) );
 void    end_of_game     args( ( void ) );
 int     race_lookup     args( ( const char *race ) );
 int     affect_lookup   args( ( const char *race ) );
 
 /* interp.c */
 void	interpret	args( ( CHAR_DATA *ch, char *argument ) );
-bool	is_number	args( ( char *arg ) );
+bool	is_number	args( ( const char *arg ) );
 int	number_argument	args( ( char *argument, char *arg ) );
-char *	one_argument	args( ( char *argument, char *arg_first ) );
+char *	one_argument	args( ( const char *argument, char *arg_first ) );
 bool    IS_SWITCHED     args( ( CHAR_DATA *ch ) );
 
 /* magic.c */
