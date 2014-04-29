@@ -113,23 +113,6 @@ const	char 	go_ahead_str	[] = { IAC, GA, '\0' };
 
 
 
-/*
- * OS-dependent declarations.
- */
-#if	defined( _AIX )
-#include <sys/select.h>
-int	accept		args( ( int s, struct sockaddr *addr, int *addrlen ) );
-int	bind		args( ( int s, struct sockaddr *name, int namelen ) );
-void	bzero		args( ( char *b, int length ) );
-int	getpeername	args( ( int s, struct sockaddr *name, int *namelen ) );
-int	getsockname	args( ( int s, struct sockaddr *name, int *namelen ) );
-int	gettimeofday	args( ( struct timeval *tp, struct timezone *tzp ) );
-int	listen		args( ( int s, int backlog ) );
-int	setsockopt	args( ( int s, int level, int optname, void *optval,
-			       int optlen ) );
-int	socket		args( ( int domain, int type, int protocol ) );
-#endif
-
 #if     defined( irix )
 void	bzero		args( ( char *b, int length ) );
 int	read		args( ( int fd, char *buf, int nbyte ) );

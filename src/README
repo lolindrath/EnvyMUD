@@ -21,7 +21,6 @@ This file gives a brief description of the files in the src directory.
 === The Makefiles
 
 Makefile	- Is the generic Makefile for machines with gcc
-Makefile.aix	- Is the Makefile specifically designed for AIX Machines
 Makefile.hp	- Is the Makefile specifically designed for HPUX Machines
 Makefile.irx	- Is the Makefile specifically designed for IRIX Machines
 Makefile.mip	- Is the Makefile specifically designed for MIPS Machines

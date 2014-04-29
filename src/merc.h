@@ -21,6 +21,7 @@
  *  around, comes around.                                                  *
  ***************************************************************************/
 
+#include <stdbool.h>
 
 
 /*
@@ -42,11 +43,6 @@
 #endif
 
 
-
-/*
- * Short scalar types.
- * Diavolo reports AIX compiler has bugs with short types.
- */
 #if	!defined( FALSE )
 #define FALSE	 0
 #endif
@@ -54,18 +50,6 @@
 #if	!defined( TRUE )
 #define TRUE	 1
 #endif
-
-#if	defined( _AIX )
-#if	!defined( const )
-#define const
-#endif
-typedef int				bool;
-#define unix
-#else
-typedef unsigned char			bool;
-#endif
-
-
 
 /*
  * Structure types.
@@ -1671,10 +1655,6 @@ DECLARE_SPELL_FUN(      spell_ultrablast        );
  * These are all very standard library functions,
  *   but some systems have incomplete or non-ansi header files.
  */
-#if	defined( _AIX )
-char *	crypt		args( ( const char *key, const char *salt ) );
-#endif
-
 #if	defined( apollo )
 int	atoi		args( ( const char *string ) );
 void *	calloc		args( ( unsigned nelem, size_t size ) );
