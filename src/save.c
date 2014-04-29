@@ -170,10 +170,10 @@ void fwrite_char( CHAR_DATA *ch, FILE *fp )
 		ch->pcdata->perm_con );
 
 	fprintf( fp, "AtrMd       %d %d %d %d %d\n",
-		ch->pcdata->mod_str, 
-		ch->pcdata->mod_int, 
+		ch->pcdata->mod_str,
+		ch->pcdata->mod_int,
 		ch->pcdata->mod_wis,
-		ch->pcdata->mod_dex, 
+		ch->pcdata->mod_dex,
 		ch->pcdata->mod_con );
 
 	fprintf( fp, "Cond        %d %d %d\n",
@@ -258,19 +258,19 @@ void fwrite_obj( CHAR_DATA *ch, OBJ_DATA *obj, FILE *fp, int iNest )
     case ITEM_SCROLL:
 	if ( obj->value[1] > 0 )
 	{
-	    fprintf( fp, "Spell 1      '%s'\n", 
+	    fprintf( fp, "Spell 1      '%s'\n",
 		skill_table[obj->value[1]].name );
 	}
 
 	if ( obj->value[2] > 0 )
 	{
-	    fprintf( fp, "Spell 2      '%s'\n", 
+	    fprintf( fp, "Spell 2      '%s'\n",
 		skill_table[obj->value[2]].name );
 	}
 
 	if ( obj->value[3] > 0 )
 	{
-	    fprintf( fp, "Spell 3      '%s'\n", 
+	    fprintf( fp, "Spell 3      '%s'\n",
 		skill_table[obj->value[3]].name );
 	}
 
@@ -281,7 +281,7 @@ void fwrite_obj( CHAR_DATA *ch, OBJ_DATA *obj, FILE *fp, int iNest )
     case ITEM_WAND:
 	if ( obj->value[3] > 0 )
 	{
-	    fprintf( fp, "Spell 3      '%s'\n", 
+	    fprintf( fp, "Spell 3      '%s'\n",
 		skill_table[obj->value[3]].name );
 	}
 
@@ -363,7 +363,7 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
     ch->pcdata->immskll			= str_dup( "" );
     ch->pcdata->title			= str_dup( "" );
     ch->pcdata->perm_str		= 13;
-    ch->pcdata->perm_int		= 13; 
+    ch->pcdata->perm_int		= 13;
     ch->pcdata->perm_wis		= 13;
     ch->pcdata->perm_dex		= 13;
     ch->pcdata->perm_con		= 13;
@@ -630,7 +630,7 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
 		fMatch = TRUE;
 		break;
 	    }
-	      
+
 	    break;
 
 	case 'S':

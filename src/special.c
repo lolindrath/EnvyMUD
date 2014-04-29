@@ -928,7 +928,7 @@ bool spec_repairman( CHAR_DATA *ch )
 
     door = number_range( 0, 5 );
     /*
-     *  Could search through all doors randomly, but deathtraps would 
+     *  Could search through all doors randomly, but deathtraps would
      *  freeze the game!  And I'd prefer not to go through from 1 to 6...
      *  too boring.  Instead, just check one direction at a time.  There's
      *  a 51% chance they'll find the door within 4 tries anyway.

@@ -30,7 +30,7 @@
 
 /*
  * Externals
- */ 
+ */
 extern  bool            merc_down;
 
 /*
@@ -98,7 +98,7 @@ void advance_level( CHAR_DATA *ch )
 	    add_prac,	ch->practice );
     send_to_char( buf, ch );
     return;
-}   
+}
 
 
 /*
@@ -150,7 +150,7 @@ void demote_level( CHAR_DATA *ch )
 	    add_prac,	ch->practice );
     send_to_char( buf, ch );
     return;
-}   
+}
 
 
 
@@ -218,7 +218,7 @@ int hit_gain( CHAR_DATA *ch )
 	      }
 	  }
       }
-    
+
     if ( IS_NPC( ch ) )
     {
 	gain = ch->level * 3 / 2;
@@ -445,14 +445,14 @@ void mobile_update( void )
 	    /* Give message if hurt */
 	    if ( rnum == 3 )
 	        act( "$n flees in terror!", ch, NULL, NULL, TO_ROOM );
-		  
+
 	    move_char( ch, door );
 
 	    /* If people are in the room, then flee. */
 	    if ( rnum == 3 )
 	    {
 		CHAR_DATA *rch;
-		
+
 		for ( rch  = pexit->to_room->people;
 		      rch;
 		      rch  = rch->next_in_room )
@@ -559,7 +559,7 @@ void weather_update( void )
 
     switch ( weather_info.sky )
     {
-    default: 
+    default:
 	bug( "Weather_update: bad sky %d.", weather_info.sky );
 	weather_info.sky = SKY_CLOUDLESS;
 	break;
@@ -635,7 +635,7 @@ void weather_update( void )
  * This function is performance sensitive.
  */
 void char_update( void )
-{   
+{
     CHAR_DATA *ch;
     CHAR_DATA *ch_save;
     CHAR_DATA *ch_quit;
@@ -775,7 +775,7 @@ void char_update( void )
 		    dmg = 50;
 		}
 	    }
-	    
+
 	    if ( weather_info.sky == SKY_CLOUDY )
 	        dmg /= 2;
 	    if ( weather_info.sky == SKY_RAINING )
@@ -844,7 +844,7 @@ void char_update( void )
  * This function is performance sensitive.
  */
 void obj_update( void )
-{   
+{
     OBJ_DATA *obj;
     OBJ_DATA *obj_next;
 
@@ -879,7 +879,7 @@ void obj_update( void )
     		case ITEM_CORPSE_PC:  message = "$p decays into dust."; break;
     		case ITEM_FOOD:       message = "$p decomposes.";       break;
 	    }
-    
+
 	    if ( obj->carried_by )
 	    {
 	        act( message, obj->carried_by, obj, NULL, TO_CHAR );
@@ -891,30 +891,30 @@ void obj_update( void )
 		  act( message, rch, obj, NULL, TO_ROOM );
 		  act( message, rch, obj, NULL, TO_CHAR );
 	      }
-    
+
 	    if ( obj == object_list )
 	    {
 	        extract_obj( obj );
-   
+
 	        obj_next = object_list;
 	    }
 	    else				/* (obj != object_list) */
 	    {
 	        OBJ_DATA *previous;
-   
+
 	        for ( previous = object_list; previous;
 		     previous = previous->next )
 	        {
 		    if ( previous->next == obj )
 	     		break;
 	        }
-   
+
 		if ( !previous )  /* Can't see how, but... */
 		    bug( "Obj_update: obj %d no longer in object_list",
     			obj->pIndexData->vnum );
-    
+
 	        extract_obj( obj );
-    
+
 	        obj_next = previous->next;
 	    }
 	}
@@ -1027,7 +1027,7 @@ void time_update( void )
 {
     FILE            *fp;
     char             buf [ MAX_STRING_LENGTH ];
-    
+
     if ( down_time <= 0 )
         return;
     if ( current_time > warning1 && warning1 > 0 )
@@ -1080,7 +1080,7 @@ void time_update( void )
 	}
 	merc_down = TRUE;
     }
-    
+
     return;
 
 }
@@ -1104,11 +1104,11 @@ void list_update( void )
 	  {
 	    AFFECT_DATA *paf;
 	    AFFECT_DATA *paf_next;
-	    
+
 	    for ( paf = ch->affected; paf; paf = paf_next )
 	      {
 		paf_next = paf->next;
-		
+
 		if ( paf->deleted || ch->deleted )
 		  {
 		    if ( ch->affected == paf )
@@ -1118,7 +1118,7 @@ void list_update( void )
 		    else
 		      {
 			AFFECT_DATA *prev;
-			
+
 			for ( prev = ch->affected; prev; prev = prev->next )
 			  {
 			    if ( prev->next == paf )
@@ -1127,21 +1127,21 @@ void list_update( void )
 				break;
 			      }
 			  }
-			
+
 			if ( !prev )
 			  {
 			    bug( "List_update: cannot find paf on ch.", 0 );
 			    continue;
 			  }
 		      }
-		    
+
 		    paf->next   = affect_free;
 		    affect_free = paf;
 		  }
 	      }
 
 	    ch_next = ch->next;
-	    
+
 	    if ( ch->deleted )
 	      {
 		if ( ch == char_list )
@@ -1160,18 +1160,18 @@ void list_update( void )
 			    break;
 			  }
 		      }
-		    
+
 		    if ( !prev )
 		      {
 			char buf [ MAX_STRING_LENGTH ];
-			
+
 			sprintf( buf, "List_update: char %s not found.",
 				ch->name );
 			bug( buf, 0 );
 			continue;
 		      }
 		  }
-		
+
 		free_char( ch );
 	      }
 	  }
@@ -1187,7 +1187,7 @@ void list_update( void )
 	  for ( ed = obj->extra_descr; ed; ed = ed_next )
 	    {
 	      ed_next = ed->next;
-	      
+
 	      if ( obj->deleted )
 		{
 		  free_string( ed->description );
@@ -1200,7 +1200,7 @@ void list_update( void )
 	  for ( paf = obj->affected; paf; paf = paf_next )
 	    {
 	      paf_next = paf->next;
-	      
+
 	      if ( obj->deleted )
 		{
 		  if ( obj->affected == paf )
@@ -1210,7 +1210,7 @@ void list_update( void )
 		  else
 		    {
 		      AFFECT_DATA *prev;
-		      
+
 		      for ( prev = obj->affected; prev; prev = prev->next )
 			{
 			  if ( prev->next == paf )
@@ -1226,7 +1226,7 @@ void list_update( void )
 			  continue;
 			}
 		    }
-		  
+
 		  paf->next   = affect_free;
 		  affect_free = paf;
 		}
@@ -1243,7 +1243,7 @@ void list_update( void )
 	      else
 		{
 		  OBJ_DATA *prev;
-		  
+
 		  for ( prev = object_list; prev; prev = prev->next )
 		    {
 		      if ( prev->next == obj )
@@ -1252,7 +1252,7 @@ void list_update( void )
 			  break;
 			}
 		    }
-		  
+
 		  if ( !prev )
 		    {
 		      bug( "List_update: obj %d not found.",

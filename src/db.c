@@ -317,7 +317,7 @@ void boot_db( void )
                     break;
 		else if ( !str_cmp( word, "AREA"     ) )
 		    load_area    ( fpArea );
-		else if ( !str_cmp( word, "HELPS"    ) ) 
+		else if ( !str_cmp( word, "HELPS"    ) )
 		    load_helps   ( fpArea );
 		else if ( !str_cmp( word, "RECALL"   ) )
 		    load_recall  ( fpArea );
@@ -617,7 +617,7 @@ void load_objects( FILE *fp )
 	    bug( "Vnum %d : light source with ITEM_INVIS set", vnum );
 	    REMOVE_BIT( pObjIndex->extra_flags, ITEM_INVIS );
 	}
-	    
+
 	for ( ; ; )
 	{
 	    char letter;
@@ -805,7 +805,7 @@ void load_resets( FILE *fp )
 	    area_last->reset_first      = pReset;
 	if (  area_last->reset_last  )
 	    area_last->reset_last->next = pReset;
-	    
+
 	area_last->reset_last	= pReset;
 	pReset->next		= NULL;
 	top_reset++;
@@ -1144,7 +1144,7 @@ void load_down_time( void )
 	}
 	while ( isspace( letter ) );
 	ungetc( letter, fp );
-	
+
 	word = fread_word( fp );
 
 	if ( !str_cmp( word, "HOUR" ) )
@@ -1396,7 +1396,7 @@ void reset_area( AREA_DATA *pArea )
 	    {
 		CHAR_DATA *ch;
 		int        count = 0;
-		
+
 		for ( ch = pRoomIndex->people; ch; ch = ch->next_in_room )
 		    if ( IS_NPC( ch ) && ch->pIndexData == pMobIndex )
 		        count++;
@@ -1481,7 +1481,7 @@ void reset_area( AREA_DATA *pArea )
 		last = FALSE;
 		break;
 	    }
-	    
+
 	    obj = create_object( pObjIndex, number_fuzzy( obj_to->level ) );
 	    obj_to_obj( obj, obj_to );
 	    last = TRUE;
@@ -1650,7 +1650,7 @@ CHAR_DATA *create_mobile( MOB_INDEX_DATA *pMobIndex )
 				mob->level * mob->level / 4,
 				mob->level * mob->level );
     mob->hit		= mob->max_hit;
-	    
+
     /*
      * Insert in list.
      */
@@ -2379,7 +2379,7 @@ void do_memory( CHAR_DATA *ch, const char *argument )
     char       buf [ MAX_STRING_LENGTH ];
 
     rch = get_char( ch );
-    
+
     if ( !authorized( rch, "memory" ) )
         return;
 

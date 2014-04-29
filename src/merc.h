@@ -70,7 +70,7 @@ typedef	void DO_FUN                     args( ( CHAR_DATA *ch,
 typedef bool SPEC_FUN                   args( ( CHAR_DATA *ch ) );
 typedef void SPELL_FUN                  args( ( int sn, int level,
 					       CHAR_DATA *ch, void *vo ) );
-typedef void GAME_FUN                   args( ( CHAR_DATA *ch, 
+typedef void GAME_FUN                   args( ( CHAR_DATA *ch,
 					       CHAR_DATA *croupier,
 					       char *argument ) );
 
@@ -538,10 +538,10 @@ struct	kill_data
 #define ITEM_WEAR_HEAD		     16
 #define ITEM_WEAR_LEGS		     32
 #define ITEM_WEAR_FEET		     64
-#define ITEM_WEAR_HANDS		    128 
+#define ITEM_WEAR_HANDS		    128
 #define ITEM_WEAR_ARMS		    256
 #define ITEM_WEAR_SHIELD	    512
-#define ITEM_WEAR_ABOUT		   1024 
+#define ITEM_WEAR_ABOUT		   1024
 #define ITEM_WEAR_WAIST		   2048
 #define ITEM_WEAR_WRIST		   4096
 #define ITEM_WIELD		   8192
@@ -1000,7 +1000,7 @@ struct	exit_data
 /*
  * Reset commands:
  *   '*': comment
- *   'M': read a mobile 
+ *   'M': read a mobile
  *   'O': read an object
  *   'P': put object in object
  *   'G': give object to mobile
@@ -1123,7 +1123,7 @@ extern  int	gsn_steal;
 extern  int	gsn_untangle;			/* by Thelonius */
 extern  int	gsn_wands;			/* by Binky / Thelonius */
 
-extern  int     gsn_bash;  
+extern  int     gsn_bash;
 extern  int     gsn_dual;			/* by Thelonius */
 extern	int	gsn_enhanced_damage;
 extern	int	gsn_kick;

@@ -57,7 +57,7 @@ const	struct	class_type	class_table	[MAX_CLASS]	=
         "Psi", APPLY_WIS,  OBJ_VNUM_SCHOOL_DAGGER,
         3151,  95,  18,  9,   6,  9, TRUE
     }
-    
+
 };
 
 #define CLASS_MAGE       0
@@ -423,7 +423,7 @@ const char *	title_table [ MAX_CLASS ][ MAX_LEVEL+1 ][ 2 ] =
 
 };
 
-/* 
+/*
  * Race types
  */
 const   struct    race_type       race_table      [ MAX_RACE ]    =
@@ -1163,7 +1163,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	"polymorph other",	{ L_APP, L_APP, L_APP, L_APP, L_APP },
 	spell_polymorph_other,	TAR_CHAR_DEFENSIVE,	POS_FIGHTING,
 	NULL,			20,	0,
-	"",			"Your body feels familiar again." 
+	"",			"Your body feels familiar again."
     },
 
     {
@@ -1173,12 +1173,12 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	"",			"You feel less protected."
     },
 
-    {                                  
+    {
         "recharge item",        {    11, L_APP, L_APP, L_APP, L_APP },
         spell_recharge_item,    TAR_OBJ_INV,            POS_STANDING,
         NULL,                   25,     12,
         "blunder",              "!Recharge Item!"
-    }, 
+    },
 
     {
 	"refresh",		{     5,     3, L_APP, L_APP, L_APP },

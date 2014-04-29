@@ -1113,7 +1113,7 @@ void extract_char( CHAR_DATA *ch, bool fPull )
 	    extract_obj( obj );
 	}
      }
-    
+
     char_from_room( ch );
 
     if ( !fPull )
@@ -1512,7 +1512,7 @@ bool can_see( CHAR_DATA *ch, CHAR_DATA *victim )
     if ( IS_NPC( ch )
 	&& !IS_NPC( victim ) && IS_SET( victim->act, PLR_WIZINVIS ) )
         return FALSE;
-	
+
     if ( !IS_NPC( victim )
 	&& IS_SET( victim->act, PLR_WIZINVIS )
 	&& get_trust( ch ) < get_trust( victim ) )

@@ -142,7 +142,7 @@ void show_list_to_char( OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNo
      * Format the list of objects.
      */
     for ( obj = list; obj; obj = obj->next_content )
-    { 
+    {
 	if ( obj->wear_loc == WEAR_NONE && can_see_obj( ch, obj ) )
 	{
 	    pstrShow = format_obj_to_char( obj, ch, fShort );
@@ -412,7 +412,7 @@ void show_char_to_char( CHAR_DATA *list, CHAR_DATA *ch )
     }
 
     return;
-} 
+}
 
 
 
@@ -443,7 +443,7 @@ void do_look( CHAR_DATA *ch, const char *argument )
     char      *pdesc;
     int        door;
 
-    if ( !IS_NPC( ch ) && !ch->desc ) 
+    if ( !IS_NPC( ch ) && !ch->desc )
 	return;
 
     if ( ch->position < POS_SLEEPING )
@@ -818,7 +818,7 @@ void do_score( CHAR_DATA *ch, const char *argument )
 	    ( !IS_NPC( ch ) && IS_SET( ch->act, PLR_AUTOSAC  ) ) ? "yes"
 	                                                         : "no" );
     strcat( buf1, buf );
-    
+
     sprintf( buf, "Wimpy set to %d hit points.\n\r", ch->wimpy );
     strcat( buf1, buf );
 
@@ -840,7 +840,7 @@ void do_score( CHAR_DATA *ch, const char *argument )
 
     switch ( ch->position )
     {
-    case POS_DEAD:     
+    case POS_DEAD:
 	strcat( buf1, "You are DEAD!!\n\r"            ); break;
     case POS_MORTAL:
 	strcat( buf1, "You are mortally wounded.\n\r" ); break;
@@ -895,7 +895,7 @@ void do_score( CHAR_DATA *ch, const char *argument )
             strcat( buf1, buf );
         }
     }
-    
+
     if ( ch->level >= 10 )
     {
 	sprintf( buf, "Alignment: %d.  ", ch->alignment );
@@ -912,7 +912,7 @@ void do_score( CHAR_DATA *ch, const char *argument )
     else if ( ch->alignment > -700 ) strcat( buf1, "evil.\n\r"    );
     else if ( ch->alignment > -900 ) strcat( buf1, "demonic.\n\r" );
     else                             strcat( buf1, "satanic.\n\r" );
-    
+
     if ( ch->affected )
     {
         bool printed = FALSE;
@@ -1067,7 +1067,7 @@ void do_help( CHAR_DATA *ch, const char *argument )
 	    hfound = TRUE;
 	}
     }
-    
+
     if ( !hfound )
         send_to_char( "No help on that word.\n\r", ch );
     return;
@@ -1091,7 +1091,7 @@ void do_who( CHAR_DATA *ch, const char *argument )
     bool             rgfClass [ MAX_CLASS ];
     bool             fClassRestrict;
     bool             fImmortalOnly;
- 
+
     /*
      * Set default arguments.
      */
@@ -1222,7 +1222,7 @@ void do_who( CHAR_DATA *ch, const char *argument )
 	else
 	    sprintf( buf + strlen( buf ), "(      %s     ) %s%s%s%s%s%s%s\n\r",
 		    class,
-		    IS_SET( wch->act, PLR_WIZINVIS ) ? "(WIZINVIS) " : "", 
+		    IS_SET( wch->act, PLR_WIZINVIS ) ? "(WIZINVIS) " : "",
 		    IS_SET( wch->act, PLR_KILLER   ) ? "(KILLER) " : "",
 		    IS_SET( wch->act, PLR_THIEF    ) ? "(THIEF) "  : "",
 		    IS_SET( wch->act, PLR_REGISTER ) ? "(PK) "     : "",
@@ -1244,7 +1244,7 @@ void do_whois( CHAR_DATA *ch, const char *argument )
     DESCRIPTOR_DATA *d;
     char             buf  [ MAX_STRING_LENGTH  ];
     char             name [ MAX_INPUT_LENGTH   ];
- 
+
     one_argument( argument, name );
 
     if( name[0] == '\0' )
@@ -1260,12 +1260,12 @@ void do_whois( CHAR_DATA *ch, const char *argument )
     {
 	CHAR_DATA       *wch;
 	char      const *class;
-	
-	wch = ( d->original ) ? d->original : d->character; 
+
+	wch = ( d->original ) ? d->original : d->character;
 
 	if( d->connected != CON_PLAYING || !can_see( ch, wch ) )
 	    continue;
-  
+
 	if( str_prefix( name, wch->name ) )
 	    continue;
 
@@ -1278,7 +1278,7 @@ void do_whois( CHAR_DATA *ch, const char *argument )
 	      case L_JUN: class = "JUNIOR"; break;
 	      case L_APP: class = "APPREN"; break;
 	    }
-    
+
 	/*
 	 * Format it up.
 	 */
@@ -1296,7 +1296,7 @@ void do_whois( CHAR_DATA *ch, const char *argument )
 	else
 	    sprintf( buf + strlen( buf ), "(      %s     ) %s%s%s%s%s%s%s\n\r",
 		    class,
-		    IS_SET( wch->act, PLR_WIZINVIS ) ? "(WIZINVIS) " : "", 
+		    IS_SET( wch->act, PLR_WIZINVIS ) ? "(WIZINVIS) " : "",
 		    IS_SET( wch->act, PLR_KILLER   ) ? "(KILLER) " : "",
 		    IS_SET( wch->act, PLR_THIEF    ) ? "(THIEF) "  : "",
 		    IS_SET( wch->act, PLR_REGISTER ) ? "(PK) "     : "",
@@ -1415,7 +1415,7 @@ void do_compare( CHAR_DATA *ch, const char *argument )
 		send_to_char( "You do not have that item.\n\r", ch );
 		return;
 	    }
-	
+
 	    if ( ( obj1->wear_flags & obj2->wear_flags & ~ITEM_TAKE ) == 0 )
 	    {
 		send_to_char( "They are not comparable items.\n\r", ch );
@@ -1424,7 +1424,7 @@ void do_compare( CHAR_DATA *ch, const char *argument )
 
 	}
     }
-	    
+
     msg		= NULL;
     value1	= 0;
     value2	= 0;
@@ -1532,7 +1532,7 @@ void do_where( CHAR_DATA *ch, const char *argument )
 	for ( victim = char_list; victim; victim = victim->next )
 	{
 	    if ( !victim->in_room
-		|| IS_AFFECTED( victim, AFF_HIDE ) 
+		|| IS_AFFECTED( victim, AFF_HIDE )
 		|| IS_AFFECTED( victim, AFF_SNEAK ) )
 	        continue;
 
@@ -1616,7 +1616,7 @@ void do_consider( CHAR_DATA *ch, const char *argument )
         buf = " you are currently much healthier than $E.";
     if ( hpdiff <= 100 )
         buf = " you are currently healthier than $E.";
-    if ( hpdiff <= 50 ) 
+    if ( hpdiff <= 50 )
         buf = " you are currently slightly healthier than $E.";
     if ( hpdiff <= 25 )
         buf = " you are a teensy bit healthier than $E.";
@@ -2047,7 +2047,7 @@ void do_socials( CHAR_DATA *ch, const char *argument )
 	if ( ++col % 6 == 0 )
 	    strcat( buf1, "\n\r" );
     }
- 
+
     if ( col % 6 != 0 )
 	strcat( buf1, "\n\r" );
 
@@ -2066,7 +2066,7 @@ void do_commands( CHAR_DATA *ch, const char *argument )
     char buf1 [ MAX_STRING_LENGTH ];
     int  cmd;
     int  col;
- 
+
     buf1[0] = '\0';
     col = 0;
     for ( cmd = 0; cmd_table[cmd].name[0] != '\0'; cmd++ )
@@ -2080,7 +2080,7 @@ void do_commands( CHAR_DATA *ch, const char *argument )
 		strcat( buf1, "\n\r" );
 	}
     }
- 
+
     if ( col % 5 != 0 )
 	strcat( buf1, "\n\r" );
 
@@ -2230,7 +2230,7 @@ void do_config( CHAR_DATA *ch, const char *argument )
 	    ? "[+BRIEF    ] You see brief descriptions.\n\r"
 	    : "[-brief    ] You see long descriptions.\n\r"
 	    , ch );
-         
+
 	send_to_char(  IS_SET( ch->act, PLR_COMBINE   )
 	    ? "[+COMBINE  ] You see object lists in combined format.\n\r"
 	    : "[-combine  ] You see object lists in single format.\n\r"
@@ -2327,7 +2327,7 @@ void do_spells ( CHAR_DATA *ch, const char *argument )
 
     if ( IS_NPC( ch )
 	|| ( !IS_NPC( ch ) && !class_table[ch->class].fMana ) )
-    {  
+    {
        send_to_char ( "You don't need no stinking spells!\n\r", ch );
        return;
     }
@@ -2368,7 +2368,7 @@ void do_slist ( CHAR_DATA *ch, const char *argument )
     bool pSpell;
 
     if ( IS_NPC( ch ) )
-    {  
+    {
        send_to_char ( "You do not need any stinking spells!\n\r", ch );
        return;
     }
@@ -2398,7 +2398,7 @@ void do_slist ( CHAR_DATA *ch, const char *argument )
 	  pSpell = FALSE;
 	}
 
-	/* format fix by Koala */ 
+	/* format fix by Koala */
 	if ( ++col % 4 == 0 )
 	  strcat ( buf1, "   " );
 
@@ -2497,7 +2497,7 @@ void do_brief ( CHAR_DATA *ch, const char *argument )
 
     ( IS_SET ( ch->act, PLR_BRIEF )
      ? sprintf( buf, "-brief" )
-     : sprintf( buf, "+brief" ) ) ; 
+     : sprintf( buf, "+brief" ) ) ;
 
     do_config( ch, buf );
 
@@ -2518,7 +2518,7 @@ void do_combine ( CHAR_DATA *ch, const char *argument )
     return;
 
 }
- 
+
 void do_pagelen ( CHAR_DATA *ch, const char *argument )
 {
     char buf [ MAX_STRING_LENGTH ];
@@ -2598,7 +2598,7 @@ void do_prompt( CHAR_DATA *ch, const char *argument )
    ch->pcdata->prompt = str_dup( buf );
    send_to_char( "Ok.\n\r", ch );
    return;
-} 
+}
 
 void do_auto( CHAR_DATA *ch, const char *argument )
 {
@@ -2625,7 +2625,7 @@ void do_afk( CHAR_DATA *ch, const char *argument )
 	send_to_char( "You are now away from keyboard.\n\r", ch       );
 	act( "$n has left $s keyboard.", ch, NULL, ch, TO_ROOM        );
     }
-    
+
     return;
 }
-	
+

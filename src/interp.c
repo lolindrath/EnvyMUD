@@ -125,7 +125,7 @@ const	struct	cmd_type	cmd_table	[ ] =
     { "berserk",	do_berserk,	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "circle",		do_circle,	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "disarm",		do_disarm,	POS_FIGHTING,	 0,  LOG_NORMAL	},
-    { "fee",    	do_fee, 	POS_FIGHTING,	 0,  LOG_NORMAL	},    
+    { "fee",    	do_fee, 	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "feed",   	do_feed,	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "flee",		do_flee,	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "kick",		do_kick,	POS_FIGHTING,	 0,  LOG_NORMAL	},
@@ -338,7 +338,7 @@ const	struct	social_type	social_table [ ] =
 	"You ACK yourself.",
 	"$n ACKS $mself.  Must be a bad day."
     },
-	
+
     {
 	"addict",
 	"You stand and admit to all in the room, 'Hi, I'm $n, and I'm a mud addict.'",
@@ -349,7 +349,7 @@ const	struct	social_type	social_table [ ] =
 	"You stand and admit to all in the room, 'Hi, I'm $n, and I'm a mud addict.'",
 	"$n stands and says, 'Hi, I'm $n, and I'm a mud addict.'",
     },
-   
+
     {
 	"agree",
 	"You seem to be in an agreeable mood.",
@@ -360,7 +360,7 @@ const	struct	social_type	social_table [ ] =
 	"Well I hope you would agree with yourself!",
 	"$n agrees with $mself, of course."
     },
-    
+
     {
 	"airguitar",
 	"You sizzle the air with your BITCHIN' guitar playing!",
@@ -404,7 +404,7 @@ const	struct	social_type	social_table [ ] =
 	"You scream 'BANZAI!!!!' at yourself, and brandish your weapon for battle.",
 	"$n screams 'BANZAI!!!!' at $mself, and charges into the fray."
     },
-    
+
     {
 	"bark",
 	"Woof!  Woof!",
@@ -437,7 +437,7 @@ const	struct	social_type	social_table [ ] =
         "You poke your fat rolls and exclaim, 'Oh, THERE'S THE BEEF!'",
         "$n pokes his fat rolls, and exclaims, 'Oh, THERE'S THE BEEF!'"
     },
-   
+
     {
 	"beer",
 	"You down a cold, frosty beer.",
@@ -470,7 +470,7 @@ const	struct	social_type	social_table [ ] =
 	"You blow a kiss to yourself.",
 	"$n blows a kiss to $mself.  Weird."
     },
-  
+
     {
 	"bleed",
 	"You bleed all over the room!",
@@ -547,7 +547,7 @@ const	struct	social_type	social_table [ ] =
 	"You boogie with yourself.  What a great dancer you are!",
 	"$n boogies with $mself.  Guess no one will dance with $m."
     },
-    
+
     {
 	"bottle",
 	"You open up a cold bottle of brew.",
@@ -556,9 +556,9 @@ const	struct	social_type	social_table [ ] =
 	"$n opens a cold bottle of brew for $N.",
 	"$n opens a cold bottle of brew for you.",
 	"You open a cold bottle of brew for yourself.",
-	"$n opens a cold bottle of brew for $mself." 
+	"$n opens a cold bottle of brew for $mself."
     },
- 
+
     {
 	"bounce",
 	"BOIINNNNNNGG!",
@@ -591,7 +591,7 @@ const	struct	social_type	social_table [ ] =
 	"You mumble to yourself, 'I'll be right back'",
 	"$n mumbles to $mself, 'I'll be right back, won't I?'"
     },
-    
+
     {
 	"brush",
 	"Brush what? Who? Where?",
@@ -606,15 +606,15 @@ const	struct	social_type	social_table [ ] =
     {
 	"bully",
 	"You growl and demand everyone's lunch money NOW!",
-	"$n growls and demands everyone's lunch money.",  
+	"$n growls and demands everyone's lunch money.",
 	"You growl and demand $S lunch money NOW!",
 	"$n growls and demands $N's lunch money.",
 	"$n growls and demands your lunch money.",
 	"You bully yourself, and take your own lunch money.",
 	"$n bullies $mself, and takes $s lunch money away from $mself???"
     },
- 
-    {  
+
+    {
 	"bungy",
 	"You tie a bungy cord to the mud and jump into internet.",
 	"$n ties a bungy cord to the mud and jumps into internet.",
@@ -646,7 +646,7 @@ const	struct	social_type	social_table [ ] =
 	"You say goodbye to yourself.  Contemplating suicide?",
 	"$n says goodbye to $mself.  Is $e contemplating suicide?"
     },
-	
+
     {
 	"cackle",
 	"You throw back your head and cackle with insane glee!",
@@ -690,7 +690,7 @@ const	struct	social_type	social_table [ ] =
 	"You curl into a tiny ball and go to sleep.",
 	"$n curls $mself into a tiny ball and goes to sleep."
     },
-    
+
     {
 	"cheer",
 	"ZIS BOOM BAH!  BUGS BUNNY BUGS BUNNY RAH RAH RAH!",
@@ -712,7 +712,7 @@ const	struct	social_type	social_table [ ] =
 	"You look around, muttering, 'Ver are the nuclear wessels?'",
 	"$n looks around, muttering, 'Ver are the nuclear wessels?'"
     },
-    
+
     {
       "cherish",
       "You cherish the moment.",
@@ -746,7 +746,7 @@ const	struct	social_type	social_table [ ] =
 	"$n claps at $s own performance."
     },
 
-    { 
+    {
         "clue",
         "You mumble 'DUM-DUM-DUM-DUM ... ah, a clue!'",
         "$n mumbles 'DUM-DUM-DUM-DUM ... ah, a clue!'",
@@ -756,7 +756,7 @@ const	struct	social_type	social_table [ ] =
         "You mumble to yourself, 'DUM-DUM-DUM-DUM ... ah, a clue!'",
         "$n mumbles to $mself, 'DUM-DUM-DUM-DUM ... ah, a clue!'"
     },
-   
+
     {
 	"clueless",
 	"You chastise everyone in the room for being clueless.",
@@ -798,10 +798,10 @@ const	struct	social_type	social_table [ ] =
 	"$n coughs loudly, and glares at $N, like it is $S fault.",
 	"$n coughs loudly, and glares at you.  Did you give $M that cold?",
 	"You cough loudly.  Why don't you take better care of yourself?",
-	"$n coughs loudly.  $n should take better care of $mself." 
+	"$n coughs loudly.  $n should take better care of $mself."
     },
 
-    { 
+    {
 	"cower",
 	"What are you afraid of?",
 	"$n cowers in the corner from claustrophobia.",
@@ -809,9 +809,9 @@ const	struct	social_type	social_table [ ] =
 	"$n cowers in the corner at the sight of $N.",
 	"$n cowers in the corner at the sight of you.",
 	"You cower in the corner at the thought of yourself.  You scaredy cat!",
-	"$n cowers in the corner.  What is wrong with $m now?"  
+	"$n cowers in the corner.  What is wrong with $m now?"
     },
-    
+
     {
 	"cringe",
 	"You cringe in terror.",
@@ -899,7 +899,7 @@ const	struct	social_type	social_table [ ] =
 	"You take a dive.",
 	"$n takes a dive."
     },
-    
+
     {
         "dizzy",
         "You are so dizzy from all this chatter.",
@@ -919,9 +919,9 @@ const	struct	social_type	social_table [ ] =
 	"$n nibbles on a carrot and says to $N, 'Eh, what's up Doc?'",
 	"$n nibbles on a carrot and says to you, 'Eh, what's up Doc?'",
 	"You nibble on a carrot and say to yourself, 'Eh, what's up $n?'",
-	"$n nibbles on a carrot and says 'Eh, what's up Doc?'" 
+	"$n nibbles on a carrot and says 'Eh, what's up Doc?'"
     },
-    
+
     {
 	"doh",
 	"You say, 'Doh!!' and hit your forehead.  What an idiot you are!",
@@ -930,9 +930,9 @@ const	struct	social_type	social_table [ ] =
 	"$n hits $mself in the forehead and says, 'Doh!!!'",
 	"$n hits $mself in the forehead and says, 'Doh!!!'",
 	"You hit yourself in the forehead and say, 'Doh!!!'",
-	"$n hits $mself in the forehead and says, 'Doh!!!'"    
+	"$n hits $mself in the forehead and says, 'Doh!!!'"
     },
-    
+
     /*
      * This one's for Baka, Penn, and Onethumb!
      */
@@ -957,8 +957,8 @@ const	struct	social_type	social_table [ ] =
 	"You duck behind yourself.  Oww that hurts!",
 	"$n tries to duck behind $mself.  $n needs help getting untied now."
     },
-   
-    {   
+
+    {
 	"embrace",
 	"Who do you want to hold?",
 	"$n looks around for someone to hold close to $m.",
@@ -979,7 +979,7 @@ const	struct	social_type	social_table [ ] =
 	"You ponder the difficulties involved in rubbing noses with yourself.",
 	"$n ponders the difficulties involved in rubbing noses with $mself."
     },
-    
+
     {
 	"eyebrow",
 	"You raise an eyebrow.",
@@ -990,7 +990,7 @@ const	struct	social_type	social_table [ ] =
 	"You raise an eyebrow at yourself.  That hurt!",
 	"$n raises an eyebrow at $mself.  That must have hurt!"
     },
- 
+
     {
 	"faint",
 	"You feel dizzy and hit the ground like a board.",
@@ -1001,8 +1001,8 @@ const	struct	social_type	social_table [ ] =
 	"You look down at your condition and faint.",
 	"$n looks down at $s condition and faints dead away."
     },
-   
-    {  
+
+    {
 	"fakerep",
 	"You report: 12874/13103 hp 9238/10230 mana 2483/3451 mv 2.31E13 xp.",
 	"$n reports: 12874/13103 hp 9238/10230 mana 2483/3451 mv 2.31E13 xp.",
@@ -1045,7 +1045,7 @@ const	struct	social_type	social_table [ ] =
 	"You flex your muscles at yourself.  Wow, you are HUGE!",
 	"$n flexes $s muscles at $mself.  How narcissistic!"
     },
-    
+
     {
 	"flip",
 	"You flip head over heels.",
@@ -1067,7 +1067,7 @@ const	struct	social_type	social_table [ ] =
 	"You flirt with yourself.",
 	"$n flirts with $mself.  Hoo boy."
     },
-    
+
     {
 	"flutter",
 	"You flutter your eyelashes.",
@@ -1076,9 +1076,9 @@ const	struct	social_type	social_table [ ] =
 	"$n flutters $s eyelashes in $N's direction.",
 	"$n looks at you and flutters $s eyelashes.",
 	"You flutter your eyelashes at the thought of yourself.",
-	"$n flutters $s eyelashes at no one in particular." 
+	"$n flutters $s eyelashes at no one in particular."
     },
- 
+
     {
 	"fondle",
 	"Who needs to be fondled?",
@@ -1144,7 +1144,7 @@ const	struct	social_type	social_table [ ] =
 	"You yell 'WAYNE'S WORLD WAYNE'S WORLD -- PARTY TIME!  EXCELLENT!'",
 	"$n yells 'WAYNE'S WORLD WAYNE'S WORLD -- PARTY TIME!  EXCELLENT!'"
     },
-    
+
     {
 	"gasp",
 	"You gasp in astonishment.",
@@ -1164,9 +1164,9 @@ const	struct	social_type	social_table [ ] =
 	"$n gawks at $N.",
 	"$n gawks at you.",
 	"You gawk as you think what you must look like to others.",
-	"$n is gawking again.  What is on $s mind?" 
+	"$n is gawking again.  What is on $s mind?"
     },
- 
+
     {
 	"german",
 	"You speak your best German in hopes of getting a beer.",
@@ -1177,7 +1177,7 @@ const	struct	social_type	social_table [ ] =
 	"You speak your best German in hopes of getting a beer.",
 	"$n says 'Du bist das hundchen!'  What the hell?"
     },
-    
+
     {
 	"ghug",
 	"GROUP HUG!  GROUP HUG!",
@@ -1188,7 +1188,7 @@ const	struct	social_type	social_table [ ] =
 	"GROUP HUG!  GROUP HUG!",
 	"$n hugs you all in a big group hug.  How sweet!"
     },
-    
+
     {
 	"giggle",
 	"You giggle.",
@@ -1221,7 +1221,7 @@ const	struct	social_type	social_table [ ] =
 	"You goose yourself.",
 	"$n gooses $mself.  Yuck."
     },
-    
+
     {
 	"grimace",
 	"You contort your face in disgust.",
@@ -1354,7 +1354,7 @@ const	struct	social_type	social_table [ ] =
 	"$n is as happy as a maggot on a piece of rotten meat."
     },
 
-    {   
+    {
 	"hello",
 	"You say hello to everyone in the room.",
 	"$n says hello to everyone in the room.",
@@ -1419,7 +1419,7 @@ const	struct	social_type	social_table [ ] =
         "You snap your fingers and create an illusion of yourself.",
         "Suddenly, there are 2 $n's standing here!"
     },
-    
+
     {
 	"howl",
 	"AHOOOOOOOOOOOOooooooooooooo.",
@@ -1430,7 +1430,7 @@ const	struct	social_type	social_table [ ] =
 	"You howl at yourself.",
 	"$n howls at $mself."
     },
-    
+
     {
 	"hmm",
 	"You Hmmmm out loud.",
@@ -1441,7 +1441,7 @@ const	struct	social_type	social_table [ ] =
 	"You Hmmmm out loud.",
 	"$n thinks, 'Hmmmm.'"
     },
- 
+
     {
 	"hug",
 	"Hug whom?",
@@ -1462,8 +1462,8 @@ const	struct	social_type	social_table [ ] =
 	"$n hums a little ditty for you.  Hmm Hmm Hmm Hmmmmmm.",
 	"Hmm Hmm Hmmmmmmm.",
 	"$n hums like a bee with a chest cold."
-    }, 
- 
+    },
+
     {
       "icecube",
       "You wonder who would like an ice cube down their shirt.",
@@ -1478,14 +1478,14 @@ const	struct	social_type	social_table [ ] =
     {
 	"invite",
 	"You speak your best French in hopes of getting lucky.",
-	"$n tells you, 'Voulez-vous couche avec moi ce soir?'",  
+	"$n tells you, 'Voulez-vous couche avec moi ce soir?'",
 	"You speak your best French to $M in hopes of getting lucky.",
 	"$n tells $N, 'Voulez-vous couche avec moi ce soir?'",
 	"$n tells you, 'Voulez-vous couche avec moi ce soir?'",
 	"You speak your best French in hopes of getting lucky, with yourself???",
 	"$n says to $mself, 'Voulez-vous couche avec moi ce soir?'"
     },
-  
+
     {
       "iwhistle",
       "You whistle innocently, trying to hide your guilt.",
@@ -1507,7 +1507,7 @@ const	struct	social_type	social_table [ ] =
         "You profess 'Jesus saves!  But Gretsky recovers...he scores!'",
         "$n announces 'Jesus saves!  But Gretsky recovers...he scores!'"
     },
-    
+
     {
 	"kiss",
 	"Isn't there someone you want to kiss?",
@@ -1529,7 +1529,7 @@ const	struct	social_type	social_table [ ] =
         "You complain about the lag, your hitpoints, your mana...",
         "$n has lost $s link because of the lag."
     },
-    
+
     {
 	"laugh",
 	"You laugh.",
@@ -1595,7 +1595,7 @@ const	struct	social_type	social_table [ ] =
 	"You say 'Ah dahling, I look MAHVELLOUS!'",
 	"$n says 'Ah dahling, I look MAHVELLOUS!'"
     },
-    
+
     {
 	"massage",
 	"Massage what?  Thin air?",
@@ -1617,7 +1617,7 @@ const	struct	social_type	social_table [ ] =
 	"You meow like a kitty cat.",
 	"$n meows like a kitty cat."
     },
-    
+
     {
 	"mmm",
 	"You go mmMMmmMMmmMMmm.",
@@ -1650,7 +1650,7 @@ const	struct	social_type	social_table [ ] =
         "You beg for money, weapons, coins.",
         "$n says 'Spare change?'"
     },
-    
+
     {
 	"moocow",
 	"You make cow noises.  Mooooooooooooooooooo!",
@@ -1661,7 +1661,7 @@ const	struct	social_type	social_table [ ] =
 	"You make cow noises.  Mooooooooooooooooooo!",
 	"$n Mooooooooooooooooooooooooos like a cow."
     },
-    
+
     {
 	"moon",
 	"Gee your butt is big.",
@@ -1672,7 +1672,7 @@ const	struct	social_type	social_table [ ] =
 	"You moon yourself.",
 	"$n moons $mself.  Ugliest butt you ever saw."
     },
-    
+
     {
 	"mosh",
 	"You MOSH insanely about the room.",
@@ -1683,7 +1683,7 @@ const	struct	social_type	social_table [ ] =
 	"You MOSH yourself.  Ah the blood!",
 	"$n MOSHES and MOSHES and MOSHES and MOSHES..."
     },
-    
+
     {
 	"muhaha",
 	"You laugh diabolically.  MUHAHAHAHAHAHA!",
@@ -1698,10 +1698,10 @@ const	struct	social_type	social_table [ ] =
     {
 	"mwalk",
 	"You grab your hat and moonwalk across the room.",
-	"$n grabs $s black hat and sparkly glove and moonwalks across the room.",      
+	"$n grabs $s black hat and sparkly glove and moonwalks across the room.",
 	"You grab your hat and moonwalk across the room.",
-	"$n grabs $s black hat and sparkly glove and moonwalks across the room.", 
-	"$n grabs $s black hat and sparkly glove and moonwalks across the room.", 
+	"$n grabs $s black hat and sparkly glove and moonwalks across the room.",
+	"$n grabs $s black hat and sparkly glove and moonwalks across the room.",
 	"You grab your hat and moonwalk across the room.",
 	"$n grabs $s black hat and sparkly glove and moonwalks across the room."
     },
@@ -1716,7 +1716,7 @@ const	struct	social_type	social_table [ ] =
         "You nibble nervously on your nails.",
         "$n nibbles nervously on $s fingernails."
     },
-    
+
     {
 	"nasty",
 	"You do the best imitation of the nasty you can.",
@@ -1727,7 +1727,7 @@ const	struct	social_type	social_table [ ] =
 	"You do the nasty with yourself.",
 	"$n does the nasty with $mself.  Hoo boy."
     },
-    
+
     {
 	"ni",
 	"You exclaim proudly, 'I am a knight that goes NI!'",
@@ -1738,7 +1738,7 @@ const	struct	social_type	social_table [ ] =
 	"You exclaim proudly, 'I am a knight that goes NI!'",
 	"$n exclaims proudly, 'I am a knight that goes NI!'"
     },
-    
+
     {
 	"nibble",
 	"Nibble on whom?",
@@ -1837,7 +1837,7 @@ const	struct	social_type	social_table [ ] =
 	"You exclaim to yourself, 'Oh no!  I did it again!'",
 	"$n exclaims to $mself, 'Oh no!  I did it again!'"
     },
-    
+
     {
 	"oink",
 	"You make pig noises.  OINK!",
@@ -1848,7 +1848,7 @@ const	struct	social_type	social_table [ ] =
 	"You make pig noises.  OINK!",
 	"$n oinks 'OINK OINK OINK!'"
     },
- 
+
     {
         "ooo",
         "You go ooOOooOOooOOoo.",
@@ -1859,7 +1859,7 @@ const	struct	social_type	social_table [ ] =
         "You go ooOOooOOooOOoo.",
         "$n says, 'ooOOooOOooOOoo.'"
     },
- 
+
     {
 	"pat",
 	"Pat whom?",
@@ -1969,7 +1969,7 @@ const	struct	social_type	social_table [ ] =
 	"You do your best imitation of a corpse.",
 	"$n hits the ground... DEAD."
     },
-    
+
     {
 	"potato",
 	"You juggle a hot potato in your hands.",
@@ -1980,7 +1980,7 @@ const	struct	social_type	social_table [ ] =
 	"You juggle a hot potato in your hands.",
 	"$n juggles a hot potato in $s hands."
     },
-    
+
     {
 	"poupon",
 	"You say 'Pardon me, do you have any Grey Poupon?'.",
@@ -1991,7 +1991,7 @@ const	struct	social_type	social_table [ ] =
 	"You say 'Pardon me, do you have any Grey Poupon?'.",
 	"$n says 'Pardon me, do you have any Grey Poupon?'"
     },
-    
+
     {
 	"pout",
 	"Ah, don't take it so hard.",
@@ -2014,7 +2014,7 @@ const	struct	social_type	social_table [ ] =
 	"$n mumbles a prayer to $mself."
     },
 
-    {   
+    {
 	"pretend",
 	"You pretend you are a GOD, and slay everyone in sight!",
 	"$n is pretending $e is an implementor again.  *sigh*",
@@ -2035,7 +2035,7 @@ const	struct	social_type	social_table [ ] =
 	"Even you wouldn't marry yourself.",
 	"$n refuses the proposal made by $mself."
     },
-    
+
     {
 	"puke",
 	"You puke ... chunks everywhere!",
@@ -2090,7 +2090,7 @@ const	struct	social_type	social_table [ ] =
 	"You raise your hand in response.",
 	"$n raises $s hand in response."
     },
-   
+
     {
       "reassure",
       "You reassure everyone that everything will be ok.",
@@ -2102,7 +2102,7 @@ const	struct	social_type	social_table [ ] =
       "$n tries to reassure $mself that everything will be ok."
     },
 
-    {   
+    {
 	"renandstimpy",
 	"You say, 'Oh Happy Happy, Joy Joy!'",
 	"$n exclaims, 'Oh Happy Happy, Joy Joy!'",
@@ -2111,7 +2111,7 @@ const	struct	social_type	social_table [ ] =
 	"$n exclaims, 'Oh Happy Happy, Joy Joy!' when $e sees you approach.",
 	"You exclaim, 'Oh Happy Happy, Joy Joy!' at the thought of yourself.",
 	"$n exclaims, 'Oh Happy Happy, Joy Joy!' at the thought of $mself."
-    },  
+    },
 
     {
 	"rofl",
@@ -2123,7 +2123,7 @@ const	struct	social_type	social_table [ ] =
 	"You roll on the floor and laugh at yourself.",
 	"$n laughs at $mself.  Join in the fun."
     },
-    
+
     {
 	"roll",
 	"You roll your eyes.",
@@ -2167,7 +2167,7 @@ const	struct	social_type	social_table [ ] =
 	"You speak Russian.  Yeah, right.  Dream on.",
 	"$n says 'Ya horosho stari malenky koshka.'  Huh?"
     },
-    
+
     {
 	"sad",
 	"You put on a glum expression.",
@@ -2310,7 +2310,7 @@ const	struct	social_type	social_table [ ] =
 	"You call down lightning and SMOKE yourself.",
 	"$n calls down lightning and SMOKES $mself."
     },
-	  
+
     {
 	"smooch",
 	"You are searching for someone to smooch.",
@@ -2321,7 +2321,7 @@ const	struct	social_type	social_table [ ] =
 	"You smooch yourself.",
 	"$n smooches $mself.  Yuck."
     },
-    
+
     {
 	"snap",
 	"PRONTO ! You snap your fingers.",
@@ -2398,7 +2398,7 @@ const	struct	social_type	social_table [ ] =
         "You snort.",
         "$n takes a sniff of some white powder and looks VERY relieved."
     },
-    
+
     {
 	"snowball",
 	"Whom do you want to throw a snowball at?",
@@ -2431,7 +2431,7 @@ const	struct	social_type	social_table [ ] =
 	"You mutter 'SPAM' in the corner quietly.",
 	"$n mutters 'SPAM SPAM SPAM SPAM'.  Join in!"
     },
-    
+
     {
 	"spanish",
 	"You speak Spanish or at least you think you do.",
@@ -2442,7 +2442,7 @@ const	struct	social_type	social_table [ ] =
 	"You speak Spanish or at least you think you do.",
 	"$n says to $mself 'Naces pendejo, mueres pendejo.'  Uh oh."
     },
-    
+
     {
 	"spank",
 	"Spank whom?",
@@ -2464,7 +2464,7 @@ const	struct	social_type	social_table [ ] =
 	"You spin yourself around and around and around....",
 	"$n spins $mself around and around and around..."
     },
-    
+
     {
 	"squeal",
 	"You squeal with delight.",
@@ -2475,7 +2475,7 @@ const	struct	social_type	social_table [ ] =
 	"You squeal at yourself.",
 	"$n squeals at $mself."
     },
-    
+
     {
 	"squeeze",
 	"Where, what, how, whom?",
@@ -2497,7 +2497,7 @@ const	struct	social_type	social_table [ ] =
 	"You squirm and squirm and squirm....",
 	"$n squirms and squirms and squirm....."
     },
-    
+
     {
 	"squish",
 	"You squish your toes into the sand.",
@@ -2530,7 +2530,7 @@ const	struct	social_type	social_table [ ] =
 	"You extort money from yourself.",
 	"$n holds $s weapon to $s throat and says 'Ok, me, give me all my money!'"
     },
-   
+
     {
 	"stretch",
 	"You stretch and relax your sore muscles.",
@@ -2541,7 +2541,7 @@ const	struct	social_type	social_table [ ] =
 	"You stretch and relax your sore muscles.",
 	"$n stretches luxuriously.  Make you want to, doesn't it."
     },
-    
+
     {
 	"strip",
 	"You show some of your shoulder as you begin your performance.",
@@ -2573,8 +2573,8 @@ const	struct	social_type	social_table [ ] =
 	"$n tells you that $e suffers whenever you're apart.",
 	"No xp again?  You suffer at the hands of fate.",
 	"$n is suffering.  Looks like $e can't seem to level."
-    },  
-    
+    },
+
     {
 	"sulk",
 	"You sulk.",
@@ -2596,7 +2596,7 @@ const	struct	social_type	social_table [ ] =
 	"You stoke your soul by catching a smooth, perfect wave.",
 	"$n stokes $s soul by catching a smooth, perfect wave."
     },
-    
+
     {
       "sweep",
       "You grab a broom and sweep up the mess you made.",
@@ -2629,7 +2629,7 @@ const	struct	social_type	social_table [ ] =
 	"You wrap your arms around yourself, and throw yourself to the ground.",
 	"$n wraps $s arms around $mself and brings $mself down!?"
     },
-    
+
     {
 	"tap",
 	"You tap your foot impatiently.",
@@ -2651,7 +2651,7 @@ const	struct	social_type	social_table [ ] =
 	"You'd better not, people may start to talk!",
 	NULL
      },
-     
+
     {
 	"thank",
 	"Thank you too.",
@@ -2673,7 +2673,7 @@ const	struct	social_type	social_table [ ] =
 	"You think about times past and friends forgotten.",
 	"$n thinks deeply and is lost in thought."
     },
-   
+
     {
 	"throttle",
 	"Whom do you want to throttle?",
@@ -2706,7 +2706,7 @@ const	struct	social_type	social_table [ ] =
 	"You take a 'T' and drink some Gatorade (tm).",
 	"$n takes a 'T' and drinks some Gatorade (tm)."
     },
-    
+
     {
 	"tongue",
 	"You stick out your tongue.",
@@ -2729,7 +2729,7 @@ const	struct	social_type	social_table [ ] =
 	"$n tortures $mself with rusty weapons.  Looks like $e enjoys it!?"
     },
 
-    {   
+    {
 	"tummy",
 	"You rub your tummy and wish you'd bought a pie at the bakery.",
 	"$n rubs $s tummy and wishes $e'd bought a pie at the bakery.",
@@ -2750,7 +2750,7 @@ const	struct	social_type	social_table [ ] =
 	"You exclaim to yourself, 'I TAWT I TAW A PUTTY TAT!!'",
 	"$n exclaims to $mself, 'I TAWT I TAW A PUTTY TAT!!'"
     },
-    
+
     {
 	"twiddle",
 	"You patiently twiddle your thumbs.",
@@ -2772,7 +2772,7 @@ const	struct	social_type	social_table [ ] =
 	"You throw up yor handz in dizgust at yur losy typing skils.",
 	"$n couldn't type a period if there was only one key on the keyboard."
     },
-    
+
     {
 	"wave",
 	"You wave.",
@@ -2805,7 +2805,7 @@ const	struct	social_type	social_table [ ] =
 	"You whine like the great whiners of the century.",
 	"$n whines 'I want to be a god already.  I need more hitpoints..I...'"
     },
-    
+
     {
 	"whistle",
 	"You whistle appreciatively.",
@@ -2871,7 +2871,7 @@ const	struct	social_type	social_table [ ] =
 	"You worship yourself.",
 	"$n worships $mself - ah, the conceitedness of it all."
     },
-	
+
     {
 	"wrap",
 	"You wrap a present for your love.",
@@ -2882,7 +2882,7 @@ const	struct	social_type	social_table [ ] =
 	"You wrap yourself with some paper.",
 	"$n wraps $mself with some wrapping paper.  Is it Christmas?"
     },
-	
+
     {
 	"yabba",
 	"YABBA-DABBA-DOO!",
@@ -2893,7 +2893,7 @@ const	struct	social_type	social_table [ ] =
 	"YABBA-DABBA-DOO!",
 	"$n hollers 'Hey Wilma -- YABBA DABBA DOO!'"
     },
-   
+
     {
 	"yahoo",
 	"You do your best Han Solo impression.",
@@ -2904,7 +2904,7 @@ const	struct	social_type	social_table [ ] =
 	"You do your best Han Solo impression.",
 	"$n exclaims, 'YAHOO!  Great shot, $n, that was one in a million!'"
     },
-    
+
     {
 	"yawn",
 	"You must be tired.",
@@ -2915,7 +2915,7 @@ const	struct	social_type	social_table [ ] =
 	"You must be tired.",
 	"$n yawns."
     },
-	 
+
     {
 	"yeehaw",
 	"You mount your white pony (?) and shout 'YEEEEEEEEEEHAW!'",
@@ -3254,7 +3254,7 @@ int number_argument( char *argument, char *arg )
 {
     char *pdot;
     int   number;
-    
+
     for ( pdot = argument; *pdot != '\0'; pdot++ )
     {
 	if ( *pdot == '.' )

@@ -40,7 +40,7 @@ void do_wizhelp( CHAR_DATA *ch, const const char *argument )
     int        col;
 
     rch = get_char( ch );
-    
+
     if ( !authorized( rch, "wizhelp" ) )
         return;
 
@@ -58,7 +58,7 @@ void do_wizhelp( CHAR_DATA *ch, const const char *argument )
 	if ( ++col % 8 == 0 )
 	    strcat( buf1, "\n\r" );
     }
- 
+
     if ( col % 8 != 0 )
 	strcat( buf1, "\n\r" );
     send_to_char( buf1, ch );
@@ -275,7 +275,7 @@ void do_pardon( CHAR_DATA *ch, const char *argument )
 void do_echo( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
-    
+
     rch = get_char( ch );
 
     if ( !authorized( rch, "echo" ) )
@@ -299,7 +299,7 @@ void do_recho( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA       *rch;
     DESCRIPTOR_DATA *d;
-    
+
     rch = get_char( ch );
 
     if ( !authorized( rch, "recho" ) )
@@ -441,7 +441,7 @@ void do_at( CHAR_DATA *ch, const char *argument )
     ROOM_INDEX_DATA *location;
     ROOM_INDEX_DATA *original;
     char             arg [ MAX_INPUT_LENGTH ];
-    
+
     rch = get_char( ch );
 
     if ( !authorized( rch, "at" ) )
@@ -614,7 +614,7 @@ void do_rstat( CHAR_DATA *ch, const char *argument )
     /* Yes, we are reusing the variable rch.  - Kahn */
     for ( rch = location->people; rch; rch = rch->next_in_room )
     {
-      /* Heh.  Thanks to Zavod for this little security fix */ 
+      /* Heh.  Thanks to Zavod for this little security fix */
       if ( can_see( ch, rch ) )
 	{
 	  strcat( buf1, " " );
@@ -722,7 +722,7 @@ void do_ostat( CHAR_DATA *ch, const char *argument )
 	    !obj->carried_by ? "(none)" : obj->carried_by->name,
 	    obj->wear_loc );
     strcat( buf1, buf );
-    
+
     sprintf( buf, "Values: %d %d %d %d.\n\r",
 	    obj->value[0], obj->value[1], obj->value[2], obj->value[3] );
     strcat( buf1, buf );
@@ -827,7 +827,7 @@ void do_mstat( CHAR_DATA *ch, const char *argument )
 	    victim->move,        victim->max_move,
 	    victim->practice );
     strcat( buf1, buf );
-	
+
     sprintf( buf,
 	"Lv: %d.  Class: %d.  Align: %d.  AC: %d.  Gold: %d.  Exp: %d.\n\r",
 	    victim->level,       victim->class,        victim->alignment,
@@ -1261,7 +1261,7 @@ void do_switch( CHAR_DATA *ch, const char *argument )
         return;
 
     one_argument( argument, arg );
-    
+
     if ( arg[0] == '\0' )
     {
 	send_to_char( "Switch into whom?\n\r", ch );
@@ -1270,7 +1270,7 @@ void do_switch( CHAR_DATA *ch, const char *argument )
 
     if ( !ch->desc )
 	return;
-    
+
     if ( ch->desc->original )
     {
 	send_to_char( "You are already switched.\n\r", ch );
@@ -1335,7 +1335,7 @@ void do_return( CHAR_DATA *ch, const char *argument )
     ch->desc->original->pcdata->switched = FALSE;
     ch->desc->character                  = ch->desc->original;
     ch->desc->original                   = NULL;
-    ch->desc->character->desc            = ch->desc; 
+    ch->desc->character->desc            = ch->desc;
     ch->desc                             = NULL;
     return;
 }
@@ -1348,7 +1348,7 @@ void do_mload( CHAR_DATA *ch, const char *argument )
     CHAR_DATA      *victim;
     MOB_INDEX_DATA *pMobIndex;
     char            arg [ MAX_INPUT_LENGTH ];
-    
+
     rch = get_char( ch );
 
     if ( !authorized( rch, "mload" ) )
@@ -1393,13 +1393,13 @@ void do_oload( CHAR_DATA *ch, const char *argument )
 
     argument = one_argument( argument, arg1 );
     one_argument( argument, arg2 );
- 
+
     if ( arg1[0] == '\0' || !is_number( arg1 ) )
     {
         send_to_char( "Syntax: oload <vnum> <level>.\n\r", ch );
         return;
     }
- 
+
     if ( arg2[0] == '\0' )
     {
 	level = get_trust( ch );
@@ -1540,7 +1540,7 @@ void do_advance( CHAR_DATA *ch, const char *argument )
 	send_to_char( "Not on NPC's.\n\r", ch );
 	return;
     }
-    
+
     level = atoi( arg2 );
 
     if ( level < 1 || level > MAX_LEVEL )
@@ -1568,7 +1568,7 @@ void do_advance( CHAR_DATA *ch, const char *argument )
     if ( level <= victim->level )
     {
 	int sn;
-	
+
 	send_to_char( "Lowering a player's level!\n\r", ch );
 	send_to_char( "**** OOOOHHHHHHHHHH  NNNNOOOO ****\n\r",    victim );
 	victim->level    = 1;
@@ -2891,7 +2891,7 @@ void do_oset( CHAR_DATA *ch, const char *argument )
 	obj->level = value;
 	return;
     }
-	
+
     if ( !str_cmp( arg2, "weight" ) )
     {
 	if ( obj->carried_by != NULL && !IS_NPC( obj->carried_by ) )
@@ -2916,7 +2916,7 @@ void do_oset( CHAR_DATA *ch, const char *argument )
 	obj->timer = value;
 	return;
     }
-	
+
     if ( !str_cmp( arg2, "name" ) )
     {
         if ( longstring( ch, arg3 ) )
@@ -3247,7 +3247,7 @@ void do_wizify( CHAR_DATA *ch, const char *argument )
     CHAR_DATA *rch;
     CHAR_DATA *victim;
     char       arg1 [ MAX_INPUT_LENGTH ];
-  
+
     rch = get_char( ch );
 
     if ( !authorized( rch, "wizify" ) )
@@ -3271,7 +3271,7 @@ void do_wizify( CHAR_DATA *ch, const char *argument )
 	return;
     }
 
-    
+
     if ( !IS_SET( victim->act, PLR_WIZBIT ) )
     {
 	SET_BIT( victim->act, PLR_WIZBIT );
@@ -3282,7 +3282,7 @@ void do_wizify( CHAR_DATA *ch, const char *argument )
     {
 	REMOVE_BIT( victim->act, PLR_WIZBIT );
 	act( "$N dewizzed.",         ch, NULL, victim, TO_CHAR );
-	act( "$n has dewizzed you!", ch, NULL, victim, TO_VICT ); 
+	act( "$n has dewizzed you!", ch, NULL, victim, TO_VICT );
     }
 
     do_save( victim, "");
@@ -3345,7 +3345,7 @@ void do_owhere( CHAR_DATA *ch, const char *argument )
 			( !in_obj->in_room ) ?
 			0 : in_obj->in_room->vnum );
 	    }
-	    
+
 	    obj_counter++;
 	    buf[0] = UPPER( buf[0] );
 	    strcat( buf1, buf );
@@ -3556,7 +3556,7 @@ void do_imtlset( CHAR_DATA *ch, const char *argument )
     int        col = 0;
 
     rch = get_char( ch );
-    
+
     if ( !authorized( rch, "imtlset" ) )
         return;
 
@@ -3606,7 +3606,7 @@ void do_imtlset( CHAR_DATA *ch, const char *argument )
 		    continue;
 		if ( !str_cmp( argument, cmd_table[cmd].name ) )
 		    break;
-	    }	      
+	    }
 	    if ( cmd_table[cmd].name[0] == '\0' )
 	    {
 		send_to_char( "That is not an immskill.\n\r", ch );
@@ -3648,7 +3648,7 @@ void do_imtlset( CHAR_DATA *ch, const char *argument )
 	if ( ++col % 8 == 0 )
 	    strcat( buf1, "\n\r" );
     }
- 
+
     if ( col % 8 != 0 )
 	strcat( buf1, "\n\r" );
     send_to_char( buf1, ch );

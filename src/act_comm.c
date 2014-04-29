@@ -8,7 +8,7 @@
  *  Envy Diku Mud improvements copyright (C) 1994 by Michael Quan, David   *
  *  Love, Guilherme 'Willie' Arnold, and Mitchell Tse.                     *
  *                                                                         *
- *  EnvyMud 2.0 improvements copyright (C) 1995 by Michael Quan and        * 
+ *  EnvyMud 2.0 improvements copyright (C) 1995 by Michael Quan and        *
  *  Mitchell Tse.                                                          *
  *                                                                         *
  *  In order to use any part of this Envy Diku Mud, you must comply with   *
@@ -53,7 +53,7 @@ bool is_note_to( CHAR_DATA *ch, NOTE_DATA *pnote )
 			   || is_name( "immortals", pnote->to_list )
 			   || is_name( "imm",       pnote->to_list )
 			   || is_name( "immort",    pnote->to_list ) ) )
-	
+
 	return TRUE;
 
     if ( is_name( ch->name, pnote->to_list ) )
@@ -631,7 +631,7 @@ void do_yell( CHAR_DATA *ch, const char *argument )
 void do_immtalk( CHAR_DATA *ch, const char *argument )
 {
     CHAR_DATA *rch;
-  
+
     rch = get_char( ch );
 
     if ( !authorized( rch, "immtalk" ) )
@@ -784,7 +784,7 @@ void do_reply( CHAR_DATA *ch, const char *argument )
 void do_emote( CHAR_DATA *ch, const char *argument )
 {
     char  buf [ MAX_STRING_LENGTH ];
-    char *plast;
+	int len;
 
     if ( !IS_NPC( ch ) && IS_SET( ch->act, PLR_NO_EMOTE ) )
     {
@@ -798,11 +798,10 @@ void do_emote( CHAR_DATA *ch, const char *argument )
 	return;
     }
 
-    for ( plast = argument; *plast != '\0'; plast++ )
-	;
+	len = strlen(argument);
 
     strcpy( buf, argument );
-    if ( isalpha( plast[-1] ) )
+    if ( isalpha( argument[len-1] ) )
 	strcat( buf, "." );
 
     act( "$n $T", ch, NULL, buf, TO_ROOM );
@@ -1273,7 +1272,7 @@ void do_follow( CHAR_DATA *ch, const char *argument )
 
 void add_follower( CHAR_DATA *ch, CHAR_DATA *master )
 {
-  
+
     if ( ch->master )
     {
 	bug( "Add_follower: non-null master.", 0 );
@@ -1527,7 +1526,7 @@ void do_split( CHAR_DATA *ch, const char *argument )
 	send_to_char( "Split how much?\n\r", ch );
 	return;
     }
-    
+
     amount = atoi( arg );
 
     if ( amount < 0 )
@@ -1547,7 +1546,7 @@ void do_split( CHAR_DATA *ch, const char *argument )
 	send_to_char( "You don't have that much gold.\n\r", ch );
 	return;
     }
-  
+
     members = 0;
     for ( gch = ch->in_room->people; gch; gch = gch->next_in_room )
     {
@@ -1562,7 +1561,7 @@ void do_split( CHAR_DATA *ch, const char *argument )
 	send_to_char( "Just keep it all.\n\r", ch );
 	return;
     }
-	    
+
     share = amount / members;
     extra = amount % members;
 

@@ -81,7 +81,7 @@ void move_char( CHAR_DATA *ch, int door )
     if ( IS_SET( ch->act, moved ) )
         return;
 
-    if ( IS_AFFECTED( ch, AFF_HOLD ) ) 
+    if ( IS_AFFECTED( ch, AFF_HOLD ) )
     {
 	send_to_char( "You are stuck in a snare!  You can't move!\n\r", ch );
 	return;
@@ -263,7 +263,7 @@ void move_char( CHAR_DATA *ch, int door )
 	act( "$n sputters and chokes!", ch, NULL, NULL, TO_ROOM );
 	damage( ch, ch, 2, TYPE_UNDEFINED, WEAR_NONE );
     }
-    
+
     do_look( ch, "auto" );
 
     SET_BIT( ch->act, moved );
@@ -274,7 +274,7 @@ void move_char( CHAR_DATA *ch, int door )
 
         if ( fch->deleted )
 	    continue;
-      
+
 	if ( fch->master == ch && fch->position == POS_STANDING )
 	{
 	    act( "You follow $N.", fch, NULL, ch, TO_CHAR );
@@ -841,7 +841,7 @@ void do_sleep( CHAR_DATA *ch, const char *argument )
 	break;
 
     case POS_RESTING:
-    case POS_STANDING: 
+    case POS_STANDING:
 	send_to_char( "You sleep.\n\r", ch );
 	act( "$n sleeps.", ch, NULL, NULL, TO_ROOM );
 	ch->position = POS_SLEEPING;
@@ -1103,7 +1103,7 @@ void do_train( CHAR_DATA *ch, const char *argument )
         pAbility    = &ch->max_hit;
         pOutput     = "hit points";
     }
-	    
+
     else if ( !str_cmp( argument, "mana" ) )
     {
  	    cost    = 1;
@@ -1165,7 +1165,7 @@ void do_train( CHAR_DATA *ch, const char *argument )
 	      }
 	}
 	else if ( !str_cmp( argument, "int" ) )
-	{ 
+	{
 	    if ( *pAbility < 18 + race_table[ ch->race ].int_mod )
 	      {
 	        ok = TRUE;
@@ -1280,10 +1280,10 @@ void do_heighten ( CHAR_DATA *ch, const char *argument )
 
 	af.bitvector = AFF_DETECT_HIDDEN;
 	affect_to_char( ch, &af );
-	
+
 	af.bitvector = AFF_INFRARED;
 	affect_to_char( ch, &af );
-	
+
 	send_to_char( "Your senses are heightened.\n\r", ch );
     }
     return;
@@ -1393,7 +1393,7 @@ void do_bash( CHAR_DATA *ch, const char *argument )
 	    REMOVE_BIT( pexit->exit_info, EX_CLOSED );
 	    if ( IS_SET( pexit->exit_info, EX_LOCKED ) )
 	        REMOVE_BIT( pexit->exit_info, EX_LOCKED );
-	    
+
 	    SET_BIT( pexit->exit_info, EX_BASHED );
 
 	    act( "Crash!  You bashed open the $d!",
@@ -1429,7 +1429,7 @@ void do_bash( CHAR_DATA *ch, const char *argument )
 	else
 	{
 	    /* Failure */
-	    
+
 	    act( "OW!  You bash against the $d, but it doesn't budge.",
 		ch, NULL, pexit->keyword, TO_CHAR );
 	    act( "$n bashes against the $d, but it holds strong.",
@@ -1476,7 +1476,7 @@ void do_snare( CHAR_DATA *ch, const char *argument )
 
     /*
      *  First, this checks for case of no second argument (valid only
-     *  while fighting already).  Later, if an argument is given, it 
+     *  while fighting already).  Later, if an argument is given, it
      *  checks validity of argument.  Unsuccessful snares flow through
      *  and receive messages at the end of the function.
      */
@@ -1493,8 +1493,8 @@ void do_snare( CHAR_DATA *ch, const char *argument )
 
 	if ( IS_NPC( ch )
 	    || number_percent( ) < ch->pcdata->learned[gsn_snare] )
-	{    
-	    affect_strip( victim, gsn_snare );  
+	{
+	    affect_strip( victim, gsn_snare );
 
 	    af.type      = gsn_snare;
 	    af.duration  = 1 + ( ( ch->level ) / 8 );
@@ -1534,19 +1534,19 @@ void do_snare( CHAR_DATA *ch, const char *argument )
 
 	if ( victim != ch->fighting ) /* TRUE if not fighting, or fighting  */
 	{                             /* if person other than victim        */
-	    if ( ch->fighting )       /* TRUE if fighting other than vict.  */ 
-	    {		
+	    if ( ch->fighting )       /* TRUE if fighting other than vict.  */
+	    {
 		send_to_char(
 		    "Take care of the person you are fighting first!\n\r",
 			     ch );
 		return;
-	    }                             
+	    }
 	    WAIT_STATE( ch, skill_table[gsn_snare].beats );
 
 	    if ( IS_NPC( ch )       /* here, arg supplied, ch not fighting  */
 		|| number_percent( ) < ch->pcdata->learned[gsn_snare] )
 	    {
-		affect_strip( victim, gsn_snare );  
+		affect_strip( victim, gsn_snare );
 
 		af.type      = gsn_snare;
 		af.duration  = 3 + ( (ch->level ) / 8 );
@@ -1578,7 +1578,7 @@ void do_snare( CHAR_DATA *ch, const char *argument )
 	    if ( IS_NPC( ch )
 		|| number_percent( ) < ch->pcdata->learned[gsn_snare] )
 	    {
-		affect_strip( victim, gsn_snare );  
+		affect_strip( victim, gsn_snare );
 
 		af.type      = gsn_snare;
 		af.duration  = 1 + ( ( ch->level ) / 8 );
@@ -1636,7 +1636,7 @@ void do_untangle( CHAR_DATA *ch, const char *argument )
 	return;
 
     if ( ( IS_NPC( ch ) && !IS_AFFECTED( ch, AFF_CHARM ) )
-	|| ( !IS_NPC( ch ) 
+	|| ( !IS_NPC( ch )
 	    && number_percent( ) < ch->pcdata->learned[gsn_untangle] ) )
     {
 	affect_strip( victim, gsn_snare );
@@ -1758,7 +1758,7 @@ void game_u_l_t( CHAR_DATA *ch, CHAR_DATA *croupier, char *argument )
     }
 /*
  *  At the moment, the winnings (and losses) do not actually go through
- *  the croupier.  They could do so, if each croupier is loaded with a 
+ *  the croupier.  They could do so, if each croupier is loaded with a
  *  certain bankroll.  Unfortunately, they would probably be popular
  *  (and rich) targets.
  */

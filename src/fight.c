@@ -56,7 +56,7 @@ void    use_magical_item     args( ( CHAR_DATA *ch ) );
 /*
  * Control the fights going on.
  * Called periodically by update_handler.
- * Slightly less efficient than Merc 2.2.  Takes 10% of 
+ * Slightly less efficient than Merc 2.2.  Takes 10% of
  *  total CPU time.
  */
 void violence_update( void )
@@ -281,7 +281,7 @@ void one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt, int wpn )
 
     thac0     = interpolate( ch->level, thac0_00, thac0_47 )
               - get_hitroll( ch, wpn )
-	      - race_hit_bonus;	
+	      - race_hit_bonus;
     victim_ac = UMAX( -15, GET_AC( victim ) / 10 );
     if ( !can_see( ch, victim ) )
 	victim_ac -= 4;
@@ -533,7 +533,7 @@ void damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int wpn )
     switch( victim->position )
     {
     case POS_MORTAL:
-	send_to_char( 
+	send_to_char(
 	    "You are mortally wounded, and will die soon, if not aided.\n\r",
 	    victim );
 	act( "$n is mortally wounded, and will die soon, if not aided.",
@@ -600,7 +600,7 @@ void damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int wpn )
 	    if ( IS_NPC( ch ) )
 	    {
 	        if ( victim->exp > 1000 * ( victim->level - 1 ) )
-		    gain_exp( victim, ( 1000 * ( victim->level - 1 ) 
+		    gain_exp( victim, ( 1000 * ( victim->level - 1 )
 				       - victim->exp ) / 2 );
 	    }
 	    else
@@ -624,7 +624,7 @@ void damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int wpn )
 		    send_to_char( buf, victim );
 		}
 	    }
-		
+
 	}
 
 	raw_kill( ch, victim );
@@ -801,7 +801,7 @@ void check_killer( CHAR_DATA *ch, CHAR_DATA *victim )
 	    return;
 	}
     }
-	
+
     if ( ( ch->level - victim->level > 5 && victim->fighting != ch )
 	|| !registered( ch, victim ) )
     {
@@ -819,11 +819,11 @@ void check_killer( CHAR_DATA *ch, CHAR_DATA *victim )
 	for ( obj = ch->carrying; obj; obj = obj_next )
 	{
 	    obj_next = obj->next_content;
-	
+
 	    if ( obj->deleted )
 	        continue;
 	    obj_from_char( obj );
-	    
+
 	    /*
 	     * Remove item inventories
 	     * Includes licenses to kill
@@ -968,7 +968,7 @@ void set_fighting( CHAR_DATA *ch, CHAR_DATA *victim )
     if ( ch->fighting )
     {
 	bug( "Set_fighting: already fighting", 0 );
-	sprintf( buf, "...%s attacking %s at %d", 
+	sprintf( buf, "...%s attacking %s at %d",
 		( IS_NPC( ch )     ? ch->short_descr     : ch->name     ),
 		( IS_NPC( victim ) ? victim->short_descr : victim->name ),
 		victim->in_room->vnum );
@@ -1027,7 +1027,7 @@ void make_corpse( CHAR_DATA *ch )
     {
 	/*
 	 * This longwinded corpse creation routine comes about because
-	 * we dont want anything created AFTER a corpse to be placed  
+	 * we dont want anything created AFTER a corpse to be placed
 	 * INSIDE a corpse.  This had caused crashes from obj_update()
 	 * in extract_obj() when the updating list got shifted from
 	 * object_list to obj_free.          --- Thelonius (Monk)
@@ -1037,7 +1037,7 @@ void make_corpse( CHAR_DATA *ch )
 	if ( ch->gold > 0 )
 	{
 	    OBJ_DATA * coins;
-	    
+
 	    coins         = create_money( ch->gold );
 	    corpse        = create_object(
 					  get_obj_index( OBJ_VNUM_CORPSE_NPC ),
@@ -1065,7 +1065,7 @@ void make_corpse( CHAR_DATA *ch )
     sprintf( buf, corpse->short_descr, name );
     free_string( corpse->short_descr );
     corpse->short_descr = str_dup( buf );
-	
+
     sprintf( buf, corpse->description, name );
     free_string( corpse->description );
     corpse->description = str_dup( buf );
@@ -1073,7 +1073,7 @@ void make_corpse( CHAR_DATA *ch )
     for ( obj = ch->carrying; obj; obj = obj_next )
     {
 	obj_next = obj->next_content;
-	
+
 	if ( obj->deleted )
 	  continue;
 	obj_from_char( obj );
@@ -1270,7 +1270,7 @@ void group_gain( CHAR_DATA *ch, CHAR_DATA *victim )
      */
     if ( IS_NPC( ch ) || victim == ch )
 	return;
-    
+
     members = 0;
     for ( gch = ch->in_room->people; gch; gch = gch->next_in_room )
     {
@@ -1396,7 +1396,7 @@ int xp_compute( CHAR_DATA *gch, CHAR_DATA *victim )
     {
 	bonus += 1/4;
     }
-    
+
     if ( ( obj = get_eq_char( victim, WEAR_WIELD_2 ) ) )
     {
 	bonus += 1/5;
@@ -1407,7 +1407,7 @@ int xp_compute( CHAR_DATA *gch, CHAR_DATA *victim )
     {
 	bonus += 1/10;
     }
-    
+
     if ( victim->race == gch->race )
     {
 	bonus -= 1/8;
@@ -1592,7 +1592,7 @@ void dam_message( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt,
 	act( buf4, ch, NULL, victim, TO_CHAR    );
 	act( buf5, ch, NULL, victim, TO_ROOM    );
     }
-      
+
     return;
 }
 
@@ -1798,7 +1798,7 @@ void do_backstab( CHAR_DATA *ch, const char *argument )
     }
 
     one_argument( argument, arg );
-    
+
     if ( arg[0] == '\0' )
     {
 	send_to_char( "Backstab whom?\n\r", ch );
@@ -1879,7 +1879,7 @@ void do_circle( CHAR_DATA *ch, const char *argument )
     }
 
     one_argument( argument, arg );
-    
+
     if ( arg[0] == '\0' )
 	victim = ch->fighting;
     else
@@ -1934,7 +1934,7 @@ void do_circle( CHAR_DATA *ch, const char *argument )
 
     act( "You circle around behind $N...", ch, NULL, victim, TO_CHAR    );
     act( "$n circles around behind $N...", ch, NULL, victim, TO_NOTVICT );
-    
+
     check_killer( ch, victim );
     WAIT_STATE( ch, skill_table[gsn_circle].beats );
     stop_fighting( victim, FALSE );
@@ -1971,7 +1971,7 @@ void do_flee( CHAR_DATA *ch, const char *argument )
 	return;
     }
 
-    if ( IS_AFFECTED( ch, AFF_HOLD ) ) 
+    if ( IS_AFFECTED( ch, AFF_HOLD ) )
     {
 	send_to_char( "You are stuck in a snare!  You can't move!\n\r", ch );
 	act( "$n wants to flee, but is caught in a snare!",
@@ -2032,11 +2032,11 @@ void do_berserk( CHAR_DATA *ch, const char *argument )
 	return;
     }
 
-    if ( !ch->fighting )                                         
-    {                                   
+    if ( !ch->fighting )
+    {
         send_to_char( "You aren't fighting anyone.\n\r", ch );
-        return;                                                      
-    }                                                                       
+        return;
+    }
 
     if ( is_affected( ch, gsn_berserk ) )
 	return;
@@ -2214,7 +2214,7 @@ void do_kick( CHAR_DATA *ch, const char *argument )
         CHAR_DATA * vch;
 
         if ( is_affected( ch, gsn_berserk )
-	    && ( vch = get_char_room( ch, arg ) ) != victim ) 
+	    && ( vch = get_char_room( ch, arg ) ) != victim )
         {
             send_to_char( "You can't!  You're in a fight to the death!\n\r",
                                                                 ch );
@@ -2459,7 +2459,7 @@ void pc_spit( CHAR_DATA *ch )
 
 	if ( !IS_NPC( victim )
 	    && ( !registered( ch, victim )
-		|| ( !licensed( ch ) 
+		|| ( !licensed( ch )
 		    && victim->race != race_lookup( "Vampire" ) ) ) )
 	    continue;
 
@@ -2644,7 +2644,7 @@ void do_feed( CHAR_DATA *ch, const char *argument )
 	    }
 	}
     }
-		  
+
     af.type      = gsn_vampiric_bite;
     af.duration  = UMAX( 5, 30 - ch->level );
     af.location  = APPLY_NONE;
@@ -2695,7 +2695,7 @@ void do_stake( CHAR_DATA *ch, const char *argument )
     check_killer( ch, victim );
 
     /* Check here to see if they have a stake in hand */
-    
+
     for ( obj = ch->carrying; obj; obj = obj->next_content )
     {
 	if ( obj->pIndexData->vnum == OBJ_VNUM_STAKE
@@ -2749,7 +2749,7 @@ void do_stake( CHAR_DATA *ch, const char *argument )
     {
 	do_feed( victim, ch->name );
     }
-	    
+
     return;
 }
 
@@ -2837,4 +2837,4 @@ void use_magical_item( CHAR_DATA *ch )
     return;
 
 }
-	    
+

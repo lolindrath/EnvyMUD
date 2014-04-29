@@ -196,7 +196,7 @@ int init_socket( int port )
 {
     static struct sockaddr_in sa_zero;
            struct sockaddr_in sa;
-                  int         x        = 1; 
+                  int         x        = 1;
                   int         fd;
 
     system( "touch SHUTDOWN.TXT" );
@@ -309,7 +309,7 @@ void game_loop_unix( int control )
 	 */
 	for ( d = descriptor_list; d; d = d_next )
 	{
-	    d_next = d->next;   
+	    d_next = d->next;
 	    if ( FD_ISSET( d->descriptor, &exc_set ) )
 	    {
 		FD_CLR( d->descriptor, &in_set  );
@@ -526,7 +526,7 @@ void new_descriptor( int control )
 			     sizeof(sock.sin_addr), AF_INET );
 	dnew->host = str_dup( from ? from->h_name : buf );
     }
-	
+
     /*
      * Swiftest: I added the following to ban sites.  I don't
      * endorse banning of sites, but Copper has few descriptors now
@@ -612,7 +612,7 @@ void close_socket( DESCRIPTOR_DATA *dclose )
     }
 
     if ( d_next == dclose )
-	d_next = d_next->next;   
+	d_next = d_next->next;
 
     if ( dclose == descriptor_list )
     {
@@ -905,7 +905,7 @@ void bust_a_prompt( DESCRIPTOR_DATA *d )
             sprintf( buf2, "%d", ch->max_mana                          );
             i = buf2; break;
          case 'v' :
-            sprintf( buf2, "%d", ch->move                              ); 
+            sprintf( buf2, "%d", ch->move                              );
             i = buf2; break;
          case 'V' :
             sprintf( buf2, "%d", ch->max_move                          );
@@ -958,10 +958,10 @@ void bust_a_prompt( DESCRIPTOR_DATA *d )
          case '%' :
             sprintf( buf2, "%%"                                        );
             i = buf2; break;
-      } 
+      }
       ++str;
       while( ( *point = *i ) != '\0' )
-         ++point, ++i;      
+         ++point, ++i;
    }
    write_to_buffer( d, buf, point - buf );
    return;
@@ -1032,7 +1032,7 @@ bool write_to_descriptor( int desc, char *txt, int length )
 	nBlock = UMIN( length - iStart, 4096 );
 	if ( ( nWrite = write( desc, txt + iStart, nBlock ) ) < 0 )
 	    { perror( "Write_to_descriptor" ); return FALSE; }
-    } 
+    }
 
     return TRUE;
 }
@@ -1340,7 +1340,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	d->connected = CON_DISPLAY_CLASS;
 	write_to_buffer( d, "\n\rPress Return to continue:\n\r", 0 );
 	break;
-	
+
     case CON_DISPLAY_CLASS:
 	strcpy( buf, "Select a class [" );
 	for ( iClass = 0; iClass < MAX_CLASS; iClass++ )
@@ -1459,7 +1459,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	    obj_to_char( obj, ch );
 	    equip_char( ch, obj, WEAR_SHIELD );
 
-	    obj = create_object( 
+	    obj = create_object(
 				get_obj_index( class_table[ch->class].weapon ),
 				0 );
 	    obj_to_char( obj, ch );
@@ -1691,7 +1691,7 @@ void stop_idling( CHAR_DATA *ch )
 void send_to_room( const char *txt, ROOM_INDEX_DATA *room )
 {
     DESCRIPTOR_DATA *d;
-    
+
     for ( d = descriptor_list; d; d = d->next )
         if ( d->character != NULL )
 	    if ( d->character->in_room == room )
@@ -1801,7 +1801,7 @@ void show_string( struct descriptor_data *d, char *input )
 	    d->showstr_point--;
 	} while( d->showstr_point != d->showstr_head );
     }
-    
+
     line    = 0;
     *buffer = 0;
     scan    = buffer;
@@ -1878,7 +1878,7 @@ void act( const char *format, CHAR_DATA *ch, const void *arg1,
 	}
 	to = vch->in_room->people;
     }
-    
+
     for ( ; to; to = to->next_in_room )
     {
 	if ( ( to->deleted )
@@ -1958,7 +1958,7 @@ void act( const char *format, CHAR_DATA *ch, const void *arg1,
 		    break;
 		}
 	    }
-		
+
 	    ++str;
 	    while ( ( *point = *i ) != '\0' )
 		++point, ++i;
