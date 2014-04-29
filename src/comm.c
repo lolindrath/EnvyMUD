@@ -1384,7 +1384,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	  case 3:  classname = "Warrior";    break;
 	  case 4:  classname = "Psionicist"; break;
 	}
-	if ( classname != "" )
+	if ( strcmp(classname, "") == 0 )
 	    do_help( ch, classname );
 	else
 	    bug( "Nanny CON_GET_NEW_CLASS:  ch->class (%d) not valid",
@@ -1535,7 +1535,7 @@ bool check_parse_name( char *name )
     if ( strlen( name ) <  3 )
 	return FALSE;
 
-	//Probably not needed anymore
+	/*TODO: Probably not needed anymore */
     if ( strlen( name ) > 12 )
 	return FALSE;
 
