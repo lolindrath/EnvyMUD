@@ -2085,7 +2085,7 @@ char *fread_string( FILE *fp )
 		    char *	pc;
 		    char	rgc[sizeof( char * )];
 		} u1;
-		int ic;
+		unsigned int ic;
 		int iHash;
 		char *pHash;
 		char *pHashPrev;

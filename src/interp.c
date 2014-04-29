@@ -32,7 +32,7 @@
 
 
 bool	check_social	args( ( CHAR_DATA *ch, char *command,
-			       char *argument ) );
+			       const char *argument ) );
 
 /*
  * Command logging types.
@@ -3084,7 +3084,7 @@ void interpret( CHAR_DATA *ch, const char *argument )
 
 
 
-bool check_social( CHAR_DATA *ch, char *command, char *argument )
+bool check_social( CHAR_DATA *ch, char *command, const char *argument )
 {
     CHAR_DATA *victim;
     char       arg [ MAX_INPUT_LENGTH ];
@@ -3159,7 +3159,7 @@ bool check_social( CHAR_DATA *ch, char *command, char *argument )
 	if ( !IS_NPC( victim ) )
         {
 	    ROOM_INDEX_DATA *original;
-	    char            *ldbase                      = "From far away, ";
+	    const char            *ldbase                      = "From far away, ";
 	    char             ldmsg [ MAX_STRING_LENGTH ];
 
 	    original = ch->in_room;
@@ -3250,19 +3250,24 @@ bool is_number( const char *arg )
 /*
  * Given a string like 14.foo, return 14 and 'foo'
  */
-int number_argument( char *argument, char *arg )
+int number_argument( const char *argument, char *arg )
 {
-    char *pdot;
+	char buf[MAX_STRING_LENGTH];
     int   number;
+	unsigned int len;
+	unsigned int i;
 
-    for ( pdot = argument; *pdot != '\0'; pdot++ )
+	strcpy(buf, argument);
+	len = strlen(buf);
+
+	for(i = 0; i < len; i++)
     {
-	if ( *pdot == '.' )
+	if ( buf[i] == '.' )
 	{
-	    *pdot = '\0';
-	    number = atoi( argument );
-	    *pdot = '.';
-	    strcpy( arg, pdot+1 );
+	    buf[i] = '\0';
+	    number = atoi( buf );
+	    buf[i] = '.';
+	    strcpy( arg, &buf[i] );
 	    return number;
 	}
     }
@@ -3306,3 +3311,4 @@ char *one_argument( const char *argument, char *arg_first )
 
     return argument;
 }
+

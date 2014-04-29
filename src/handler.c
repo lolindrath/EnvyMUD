@@ -312,7 +312,7 @@ int can_carry_w( CHAR_DATA *ch )
  * New is_name sent in by Alander.
  */
 
-bool is_name( const char *str, char *namelist )
+bool is_name( const char *str, const char *namelist )
 {
     char name [ MAX_INPUT_LENGTH ];
 
@@ -1233,7 +1233,7 @@ OBJ_DATA *get_obj_type( OBJ_INDEX_DATA *pObjIndex )
 /*
  * Find an obj in a list.
  */
-OBJ_DATA *get_obj_list( CHAR_DATA *ch, char *argument, OBJ_DATA *list )
+OBJ_DATA *get_obj_list( CHAR_DATA *ch, const char *argument, OBJ_DATA *list )
 {
     OBJ_DATA *obj;
     char      arg [ MAX_INPUT_LENGTH ];
@@ -1259,7 +1259,7 @@ OBJ_DATA *get_obj_list( CHAR_DATA *ch, char *argument, OBJ_DATA *list )
 /*
  * Find an obj in player's inventory.
  */
-OBJ_DATA *get_obj_carry( CHAR_DATA *ch, char *argument )
+OBJ_DATA *get_obj_carry( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *obj;
     char      arg [ MAX_INPUT_LENGTH ];
@@ -1287,7 +1287,7 @@ OBJ_DATA *get_obj_carry( CHAR_DATA *ch, char *argument )
 /*
  * Find an obj in player's equipment.
  */
-OBJ_DATA *get_obj_wear( CHAR_DATA *ch, char *argument )
+OBJ_DATA *get_obj_wear( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *obj;
     char      arg [ MAX_INPUT_LENGTH ];
@@ -1315,7 +1315,7 @@ OBJ_DATA *get_obj_wear( CHAR_DATA *ch, char *argument )
 /*
  * Find an obj in the room or in inventory.
  */
-OBJ_DATA *get_obj_here( CHAR_DATA *ch, char *argument )
+OBJ_DATA *get_obj_here( CHAR_DATA *ch, const char *argument )
 {
     OBJ_DATA *obj;
 

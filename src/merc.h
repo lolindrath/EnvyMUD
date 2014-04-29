@@ -1782,7 +1782,7 @@ int     get_hitroll     args( ( CHAR_DATA *ch, int wpn ) );
 int     get_damroll     args( ( CHAR_DATA *ch, int wpn ) );
 int	can_carry_n	args( ( CHAR_DATA *ch ) );
 int	can_carry_w	args( ( CHAR_DATA *ch ) );
-bool	is_name		args( ( const char *str, char *namelist ) );
+bool	is_name		args( ( const char *str, const char *namelist ) );
 void	affect_to_char	args( ( CHAR_DATA *ch, AFFECT_DATA *paf ) );
 void	affect_remove	args( ( CHAR_DATA *ch, AFFECT_DATA *paf ) );
 void	affect_strip	args( ( CHAR_DATA *ch, int sn ) );
@@ -1806,11 +1806,11 @@ void	extract_char	args( ( CHAR_DATA *ch, bool fPull ) );
 CD *	get_char_room	args( ( CHAR_DATA *ch, char *argument ) );
 CD *	get_char_world	args( ( CHAR_DATA *ch, char *argument ) );
 OD *	get_obj_type	args( ( OBJ_INDEX_DATA *pObjIndexData ) );
-OD *	get_obj_list	args( ( CHAR_DATA *ch, char *argument,
+OD *	get_obj_list	args( ( CHAR_DATA *ch, const char *argument,
 			       OBJ_DATA *list ) );
-OD *	get_obj_carry	args( ( CHAR_DATA *ch, char *argument ) );
-OD *	get_obj_wear	args( ( CHAR_DATA *ch, char *argument ) );
-OD *	get_obj_here	args( ( CHAR_DATA *ch, char *argument ) );
+OD *	get_obj_carry	args( ( CHAR_DATA *ch, const char *argument ) );
+OD *	get_obj_wear	args( ( CHAR_DATA *ch, const char *argument ) );
+OD *	get_obj_here	args( ( CHAR_DATA *ch, const char *argument ) );
 OD *	get_obj_world	args( ( CHAR_DATA *ch, const char *argument ) );
 OD *	create_money	args( ( int amount ) );
 int	get_obj_number	args( ( OBJ_DATA *obj ) );
@@ -1834,7 +1834,7 @@ int     affect_lookup   args( ( const char *race ) );
 /* interp.c */
 void	interpret	args( ( CHAR_DATA *ch, const char *argument ) );
 bool	is_number	args( ( const char *arg ) );
-int	number_argument	args( ( char *argument, char *arg ) );
+int	number_argument	args( ( const char *argument, char *arg ) );
 char *	one_argument	args( ( const char *argument, char *arg_first ) );
 bool    IS_SWITCHED     args( ( CHAR_DATA *ch ) );
 

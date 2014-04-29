@@ -64,7 +64,7 @@ int skill_lookup( const char *name )
 void say_spell( CHAR_DATA *ch, int sn )
 {
                         CHAR_DATA *rch;
-			char      *pName;
+			const char      *pName;
 			char       buf       [ MAX_STRING_LENGTH ];
 			char       buf2      [ MAX_STRING_LENGTH ];
 			int        iSyl;
@@ -416,7 +416,7 @@ void obj_cast_spell( int sn, int level, CHAR_DATA *ch, CHAR_DATA *victim,
 	break;
     }
 
-    target_name = "";
+    strcpy(target_name, "");
     (*skill_table[sn].spell_fun) ( sn, level, ch, vo );
 
     if ( skill_table[sn].target == TAR_CHAR_OFFENSIVE
