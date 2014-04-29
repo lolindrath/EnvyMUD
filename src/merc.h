@@ -1651,85 +1651,6 @@ DECLARE_SPELL_FUN(      spell_ultrablast        );
 
 
 /*
- * OS-dependent declarations.
- * These are all very standard library functions,
- *   but some systems have incomplete or non-ansi header files.
- */
-#if	defined( apollo )
-int	atoi		args( ( const char *string ) );
-void *	calloc		args( ( unsigned nelem, size_t size ) );
-char *	crypt		args( ( const char *key, const char *salt ) );
-#endif
-
-#if	defined( hpux )
-char *	crypt		args( ( const char *key, const char *salt ) );
-#endif
-
-#if	defined( linux )
-char *	crypt		args( ( const char *key, const char *salt ) );
-#endif
-
-#if	defined( macintosh )
-#define NOCRYPT
-#if	defined( unix )
-#undef	unix
-#endif
-#endif
-
-#if	defined( MIPS_OS )
-char *	crypt		args( ( const char *key, const char *salt ) );
-#endif
-
-#if	defined( MSDOS )
-#define NOCRYPT
-#if	defined( unix )
-#undef	unix
-#endif
-#endif
-
-#if	defined( NeXT )
-char *	crypt		args( ( const char *key, const char *salt ) );
-#endif
-
-#if	defined( sequent )
-char *	crypt		args( ( const char *key, const char *salt ) );
-int	fclose		args( ( FILE *stream ) );
-int	fprintf		args( ( FILE *stream, const char *format, ... ) );
-int	fread		args( ( void *ptr, int size, int n, FILE *stream ) );
-int	fseek		args( ( FILE *stream, long offset, int ptrname ) );
-void	perror		args( ( const char *s ) );
-int	ungetc		args( ( int c, FILE *stream ) );
-#endif
-
-#if	defined( sun )
-char *	crypt		args( ( const char *key, const char *salt ) );
-int	fclose		args( ( FILE *stream ) );
-int	fprintf		args( ( FILE *stream, const char *format, ... ) );
-size_t	fread		args( ( void *ptr, size_t size, size_t nitems,
-			       FILE *stream ) );
-int	fseek		args( ( FILE *stream, long offset, int ptrname ) );
-void	perror		args( ( const char *s ) );
-int	ungetc		args( ( int c, FILE *stream ) );
-#endif
-
-#if	defined( ultrix )
-char *	crypt		args( ( const char *key, const char *salt ) );
-#endif
-
-/*
- * Stuff for DEC UNIX on Alpha (OSF3.2C)
- * Fusion
- */
-#if defined( _OSF_SOURCE )
-char *	crypt           args( ( const char *key, const char *salt ) );
-int     system          args( ( const char *string ) );
-ssize_t read            args( ( int fd, void *buf, size_t nbyte ) );
-ssize_t write           args( ( int fd, const void *buf, size_t nbyte ) );
-int     close           args( ( int fd ) );
-#endif
-
-
-/*
  * The crypt(3) function is not available on some operating systems.
  * In particular, the U.S. Government prohibits its export from the
  *   United States to foreign countries.
@@ -1752,22 +1673,7 @@ int     close           args( ( int fd ) );
  *   so players can go ahead and telnet to all the other descriptors.
  * Then we close it whenever we need to open a file (e.g. a save file).
  */
-#if defined( macintosh )
-#define PLAYER_DIR	""		/* Player files			*/
-#define NULL_FILE	"proto.are"	/* To reserve one stream	*/
-#endif
-
-#if defined( MSDOS )
-#define PLAYER_DIR	""		/* Player files                 */
-#define NULL_FILE	"nul"		/* To reserve one stream	*/
-#endif
-
 #if defined( unix )
-#define PLAYER_DIR	"../player/"	/* Player files			*/
-#define NULL_FILE	"/dev/null"	/* To reserve one stream	*/
-#endif
-
-#if defined( linux )
 #define PLAYER_DIR	"../player/"	/* Player files			*/
 #define NULL_FILE	"/dev/null"	/* To reserve one stream	*/
 #endif
