@@ -174,7 +174,11 @@ int init_socket( int port )
                   int         x        = 1;
                   int         fd;
 
-    system( "touch SHUTDOWN.TXT" );
+    if(system( "touch SHUTDOWN.TXT" ) < 0)
+    {
+    	perror("touch SHUTDOWN.TXT");
+    }
+
     if ( ( fd = socket( AF_INET, SOCK_STREAM, 0 ) ) < 0 )
     {
 	perror( "Init_socket: socket" );
@@ -224,7 +228,11 @@ int init_socket( int port )
 	exit( 1 );
     }
 
-    system( "rm SHUTDOWN.TXT" );
+    if(system( "rm SHUTDOWN.TXT" ) < 0)
+    {
+    	perror("rm SHUTDOWN.TXT");
+    }
+
     return fd;
 }
 

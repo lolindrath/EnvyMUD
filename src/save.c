@@ -359,9 +359,12 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
 	    "/", capitalize( name ), ".gz" );
     if ( ( fp = fopen( strsave, "r" ) ) )
     {
-	fclose( fp );
-	sprintf( buf, "gzip -dfq %s", strsave );
-	system( buf );
+		fclose( fp );
+		sprintf( buf, "gzip -dfq %s", strsave );
+		if(system( buf ) < 0)
+		{
+			perror("Failed to gzip player file");
+		}
     }
 
     sprintf( strsave, "%s%s%s%s", PLAYER_DIR, initial( ch->name ),
