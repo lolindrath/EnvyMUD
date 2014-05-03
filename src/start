@@ -1,3 +1,0 @@
-#! /bin/csh -f
-nohup /EnvyMud/src/startup 1234 >! /EnvyMud/log/errors.out &
-
